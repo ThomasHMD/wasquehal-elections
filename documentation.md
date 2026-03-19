@@ -2,7 +2,8 @@
 
 Application web interactive de visualisation des données électorales de Wasquehal, par bureau de vote.
 
-- **URL prod** : à configurer (GitHub Pages)
+- **URL prod** : https://thomashmd.github.io/wasquehal-elections/
+- **Repo GitHub** : https://github.com/ThomasHMD/wasquehal-elections
 - **Stack** : React 19 + TypeScript + Vite 6 + MapLibre GL JS 4 + Tailwind CSS 4
 
 ---
