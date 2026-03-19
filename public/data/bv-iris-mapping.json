@@ -1,0 +1,202 @@
+{
+  "0001": [
+    {
+      "iris_code": "596460202",
+      "overlap_pct": 67.28
+    },
+    {
+      "iris_code": "596460301",
+      "overlap_pct": 29.69
+    },
+    {
+      "iris_code": "596460203",
+      "overlap_pct": 8.11
+    }
+  ],
+  "0010": [
+    {
+      "iris_code": "596460103",
+      "overlap_pct": 76.09
+    },
+    {
+      "iris_code": "596460101",
+      "overlap_pct": 19.55
+    },
+    {
+      "iris_code": "596460102",
+      "overlap_pct": 8.32
+    }
+  ],
+  "0011": [
+    {
+      "iris_code": "596460101",
+      "overlap_pct": 90.26
+    },
+    {
+      "iris_code": "596460103",
+      "overlap_pct": 13.29
+    }
+  ],
+  "0012": [
+    {
+      "iris_code": "596460101",
+      "overlap_pct": 99.91
+    }
+  ],
+  "0013": [
+    {
+      "iris_code": "596460301",
+      "overlap_pct": 74.29
+    },
+    {
+      "iris_code": "596460302",
+      "overlap_pct": 26.18
+    }
+  ],
+  "0014": [
+    {
+      "iris_code": "596460302",
+      "overlap_pct": 95.79
+    },
+    {
+      "iris_code": "596460301",
+      "overlap_pct": 4.92
+    }
+  ],
+  "0015": [
+    {
+      "iris_code": "596460302",
+      "overlap_pct": 99.13
+    },
+    {
+      "iris_code": "596460203",
+      "overlap_pct": 1.02
+    }
+  ],
+  "0016": [
+    {
+      "iris_code": "596460103",
+      "overlap_pct": 67.92
+    },
+    {
+      "iris_code": "596460102",
+      "overlap_pct": 25.75
+    },
+    {
+      "iris_code": "596460101",
+      "overlap_pct": 17.33
+    },
+    {
+      "iris_code": "596460202",
+      "overlap_pct": 1.06
+    }
+  ],
+  "0002": [
+    {
+      "iris_code": "596460301",
+      "overlap_pct": 99.96
+    }
+  ],
+  "0003": [
+    {
+      "iris_code": "596460203",
+      "overlap_pct": 69.16
+    },
+    {
+      "iris_code": "596460301",
+      "overlap_pct": 22.98
+    },
+    {
+      "iris_code": "596460202",
+      "overlap_pct": 9.82
+    }
+  ],
+  "0004": [
+    {
+      "iris_code": "596460203",
+      "overlap_pct": 86.31
+    },
+    {
+      "iris_code": "596460202",
+      "overlap_pct": 13.56
+    },
+    {
+      "iris_code": "596460301",
+      "overlap_pct": 1.5
+    }
+  ],
+  "0005": [
+    {
+      "iris_code": "596460203",
+      "overlap_pct": 66.35
+    },
+    {
+      "iris_code": "596460202",
+      "overlap_pct": 13.32
+    },
+    {
+      "iris_code": "596460201",
+      "overlap_pct": 10.89
+    },
+    {
+      "iris_code": "596460301",
+      "overlap_pct": 6.17
+    },
+    {
+      "iris_code": "596460302",
+      "overlap_pct": 2.35
+    },
+    {
+      "iris_code": "596460102",
+      "overlap_pct": 1.9
+    }
+  ],
+  "0006": [
+    {
+      "iris_code": "596460202",
+      "overlap_pct": 63.0
+    },
+    {
+      "iris_code": "596460201",
+      "overlap_pct": 28.49
+    },
+    {
+      "iris_code": "596460102",
+      "overlap_pct": 11.49
+    }
+  ],
+  "0007": [
+    {
+      "iris_code": "596460103",
+      "overlap_pct": 44.22
+    },
+    {
+      "iris_code": "596460202",
+      "overlap_pct": 41.73
+    },
+    {
+      "iris_code": "596460102",
+      "overlap_pct": 16.28
+    }
+  ],
+  "0008": [
+    {
+      "iris_code": "596460102",
+      "overlap_pct": 98.55
+    },
+    {
+      "iris_code": "596460201",
+      "overlap_pct": 1.65
+    }
+  ],
+  "0009": [
+    {
+      "iris_code": "596460102",
+      "overlap_pct": 97.0
+    },
+    {
+      "iris_code": "596460101",
+      "overlap_pct": 2.96
+    }
+  ]
+}
