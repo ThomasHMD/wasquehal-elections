@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import type { BVResult } from '../utils/types'
+import { assetUrl } from '../utils/assetUrl'
 
 // Cache par scrutin : charge seulement ce qui est demandé
 const cache = new Map<string, BVResult[]>()
@@ -12,7 +13,7 @@ function fetchElection(idElection: string): Promise<BVResult[]> {
   const existing = inFlight.get(idElection)
   if (existing) return existing
 
-  const p = fetch(`/data/elections/${idElection}.json`)
+  const p = fetch(assetUrl(`/data/elections/${idElection}.json`))
     .then(r => {
       if (!r.ok) throw new Error(`Scrutin ${idElection} introuvable`)
       return r.json() as Promise<BVResult[]>

@@ -9,6 +9,7 @@ import {
   buildHeatmapData,
   SCRUTIN_TYPES,
 } from '../utils/evolutionHelpers'
+import { assetUrl } from '../utils/assetUrl'
 import type { FamillePoint } from '../utils/evolutionHelpers'
 
 // Charge les données familles pré-agrégées (6 KB au lieu de 732 KB)
@@ -17,15 +18,20 @@ let famillesCache: FamillePoint[] | null = null
 function useFamillesData() {
   const [data, setData] = useState<FamillePoint[]>(famillesCache ?? [])
   const [loading, setLoading] = useState(!famillesCache)
+  const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
     if (famillesCache) return
-    fetch('/data/familles-evolution.json')
-      .then(r => r.json() as Promise<FamillePoint[]>)
+    fetch(assetUrl('/data/familles-evolution.json'))
+      .then(r => {
+        if (!r.ok) throw new Error('Données familles introuvables')
+        return r.json() as Promise<FamillePoint[]>
+      })
       .then(d => { famillesCache = d; setData(d); setLoading(false) })
+      .catch(err => { setError(err.message); setLoading(false) })
   }, [])
 
-  return { data, loading }
+  return { data, loading, error }
 }
 
 type TabId = 'abstention' | 'familles' | 'heatmap'

@@ -40,7 +40,6 @@ export default function MapView() {
         <ScrutinSelector value={scrutinId} onChange={id => {
           setScrutinId(id)
           setSelectedBV(null)
-          setMetrique('famille')
         }} />
 
         <MetriqueSelector
@@ -54,7 +53,7 @@ export default function MapView() {
           <div className="mt-auto pt-4 border-t border-slate-200 text-xs text-slate-500 space-y-1">
             <div><span className="font-medium">Scrutin :</span> {scrutin.label}</div>
             {!loadingElections && (
-              <div><span className="font-medium">Bureaux :</span> {electionData.length}</div>
+              <div><span className="font-medium">Bureaux :</span> {electionData.length} BV{scrutin && scrutin.annee < 2017 ? ' (avant création BV 0016)' : ''}</div>
             )}
           </div>
         )}

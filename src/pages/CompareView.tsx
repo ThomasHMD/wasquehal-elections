@@ -106,7 +106,7 @@ export default function CompareView() {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-100">
-                  {Array.from(metricsA.entries()).sort(([a], [b]) => a.localeCompare(b)).map(([bv, mA]) => {
+                  {Array.from(metricsA.entries()).sort(([a], [b]) => parseInt(a) - parseInt(b)).map(([bv, mA]) => {
                     const mB = metricsB.get(bv)
                     const delta = deltas?.get(bv)
                     return (

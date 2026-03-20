@@ -39,6 +39,8 @@ export default function AboutView() {
             <li>Les données socio-démographiques IRIS sont issues du recensement INSEE et peuvent ne pas correspondre exactement aux bureaux de vote.</li>
             <li>Les nuances politiques sont celles attribuées par le Ministère de l'Intérieur — elles peuvent différer de l'appartenance déclarée.</li>
             <li>Certains scrutins anciens peuvent présenter des données incomplètes.</li>
+            <li><strong>Bureau de vote 0016</strong> : créé en 2017, il n'apparaît pas dans les scrutins antérieurs. Wasquehal comptait 15 BV avant 2017, 16 depuis.</li>
+            <li><strong>Votes blancs</strong> : comptabilisés séparément depuis 2014 seulement. Avant cette date, ils sont inclus dans les nuls.</li>
           </ul>
         </section>
 
