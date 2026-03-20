@@ -529,7 +529,7 @@ jobs:
 - [x]  README (documentation.md)
 - [x]  Deploy GitHub Pages (CI/CD GitHub Actions configuré, base path `/wasquehal-elections/`)
 
-### Phase 9.5 — Finalisation *(audit qualité)*
+### Phase 8 — Finalisation *(audit qualité)*
 
 #### Lot 1 — Pipeline données (P0)
 

@@ -35,7 +35,7 @@ export default function FamilleEvolutionChart({ data }: FamilleEvolutionChartPro
         />
         <Tooltip
           formatter={(value: number, name: string) => [
-            `${(value * 100).toFixed(1)} %`,
+            `${value.toFixed(1)} %`,
             FAMILLE_LABELS[name as Famille] ?? name,
           ]}
           contentStyle={{ fontSize: 12 }}
