@@ -1,6 +1,7 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, lazy, Suspense } from 'react'
 import Sidebar from '../components/layout/Sidebar'
-import SocioRadar from '../components/charts/SocioRadar'
+
+const SocioRadar = lazy(() => import('../components/charts/SocioRadar'))
 import { useSocioData } from '../hooks/useSocioData'
 import { useElectionData } from '../hooks/useElectionData'
 import { DEFAULT_SCRUTIN_ID, SCRUTINS } from '../data/config'
@@ -55,9 +56,6 @@ export default function SocioView() {
         <div className="text-xs text-slate-400 mt-2">
           Cliquer sur un IRIS pour voir son profil
         </div>
-        <div className="mt-auto pt-4 border-t border-slate-200 text-xs text-slate-400">
-          ⚠ Données socio simulées — à remplacer par vraies données INSEE
-        </div>
       </Sidebar>
 
       <main className="flex-1 overflow-y-auto p-6">
@@ -93,11 +91,11 @@ export default function SocioView() {
                         }`}
                       >
                         <td className="px-4 py-2.5 font-medium text-slate-800">{iris.nom_iris}</td>
-                        <td className="px-3 py-2.5 text-right text-slate-600">{iris.population.toLocaleString('fr')}</td>
-                        <td className="px-3 py-2.5 text-right text-slate-600">{iris.revenu_median.toLocaleString('fr')} €</td>
-                        <td className="px-3 py-2.5 text-right text-slate-600">{iris.taux_pauvrete.toFixed(1)} %</td>
-                        <td className="px-3 py-2.5 text-right text-slate-600">{iris.taux_chomage.toFixed(1)} %</td>
-                        <td className="px-3 py-2.5 text-right text-slate-600">{iris.pct_logement_social.toFixed(1)} %</td>
+                        <td className="px-3 py-2.5 text-right text-slate-600">{iris.population != null ? iris.population.toLocaleString('fr') : '–'}</td>
+                        <td className="px-3 py-2.5 text-right text-slate-600">{iris.revenu_median != null ? `${iris.revenu_median.toLocaleString('fr')} €` : '–'}</td>
+                        <td className="px-3 py-2.5 text-right text-slate-600">{iris.taux_pauvrete != null ? `${iris.taux_pauvrete.toFixed(1)} %` : '–'}</td>
+                        <td className="px-3 py-2.5 text-right text-slate-600">{iris.taux_chomage != null ? `${iris.taux_chomage.toFixed(1)} %` : '–'}</td>
+                        <td className="px-3 py-2.5 text-right text-slate-600">{iris.pct_logement_social != null ? `${iris.pct_logement_social.toFixed(1)} %` : '–'}</td>
                         {scrutin && (
                           <td className="px-3 py-2.5 text-right">
                             {abstention !== undefined ? (
@@ -121,7 +119,9 @@ export default function SocioView() {
                   <h2 className="text-sm font-semibold text-slate-700 mb-3">
                     {selectedSocio.nom_iris} — Radar socio
                   </h2>
-                  <SocioRadar iris={selectedSocio} />
+                  <Suspense fallback={<div className="text-sm text-slate-400 animate-pulse text-center py-8">Chargement radar…</div>}>
+                    <SocioRadar iris={selectedSocio} />
+                  </Suspense>
                 </div>
 
                 <div className="bg-white rounded-lg border border-slate-200 p-4">

@@ -19,85 +19,22 @@ for col in ['inscrits', 'votants', 'abstentions', 'blancs', 'nuls', 'exprimes']:
 df_cand['voix'] = pd.to_numeric(df_cand['voix'], errors='coerce').fillna(0).astype(int)
 df_cand['ratio_voix_exprimes'] = pd.to_numeric(df_cand['ratio_voix_exprimes'], errors='coerce').fillna(0.0)
 
-# Family mapping — 117 nuance codes couverts
-nuance_mapping = {
-    # --- Gauche ---
-    'EXG': 'extreme_gauche', 'LFI': 'gauche', 'COM': 'gauche', 'FI': 'gauche',
-    'ECO': 'gauche', 'SOC': 'gauche', 'DVG': 'gauche', 'RDG': 'gauche',
-    'UG': 'gauche', 'NUP': 'gauche', 'FG': 'gauche', 'VEC': 'gauche',
-    'DXG': 'extreme_gauche', 'GAU': 'gauche',
-    # Candidats présidentiels gauche
-    'HOLL': 'gauche', 'JOSP': 'gauche', 'TAUB': 'gauche',
-    'LAGU': 'extreme_gauche', 'MELE': 'extreme_gauche', 'MEGR': 'extreme_gauche',
-    'BESA': 'extreme_gauche', 'BUFF': 'extreme_gauche', 'HUE': 'gauche',
-    'BOVE': 'gauche', 'JOLY': 'gauche', 'ARTH': 'extreme_gauche',
-    'POUT': 'extreme_gauche', 'GLUC': 'extreme_gauche',
-    # Codes législatives préfixe L — gauche
-    'LDVG': 'gauche', 'LSOC': 'gauche', 'LCOM': 'gauche', 'LFG': 'gauche',
-    'LEXG': 'extreme_gauche', 'LDG': 'gauche', 'LUG': 'gauche', 'LUGE': 'gauche',
-    'LECO': 'gauche', 'LVEC': 'gauche', 'LVEG': 'gauche', 'LVE': 'gauche',
-    'LFI': 'gauche', 'LGA': 'gauche', 'LXG': 'extreme_gauche',
-    'LO': 'extreme_gauche', 'LCR': 'extreme_gauche', 'LPS': 'gauche',
-    'LEPA': 'gauche', 'LEPE': 'gauche',
-    # Binômes cantonaux gauche
-    'BC-SOC': 'gauche', 'BC-FG': 'gauche', 'BC-UGE': 'gauche', 'BC-VEC': 'gauche',
+# Chargement du mapping depuis le fichier JSON éditable
+mapping_path = os.path.join(os.path.dirname(__file__), 'nuance-famille-mapping.json')
+with open(mapping_path, encoding='utf-8') as f:
+    _mapping = json.load(f)
 
-    # --- Centre ---
-    'REM': 'centre', 'ENS': 'centre', 'MDM': 'centre', 'DVC': 'centre',
-    'UC': 'centre', 'HOR': 'centre', 'CEN': 'centre', 'UDF': 'centre',
-    'UDFD': 'centre', 'NCE': 'centre', 'MNA': 'centre',
-    # Candidats présidentiels centre
-    'BAYR': 'centre', 'MADE': 'centre', 'SCHI': 'centre',
-    # Codes législatives préfixe L — centre
-    'LREM': 'centre', 'LENS': 'centre', 'LCMD': 'centre', 'LDV': 'centre',
-    'LPC': 'centre', 'LUDF': 'centre', 'LUC': 'centre',
+# Fusion des nuances génériques + codes présidentiels en un seul dict
+nuance_mapping = {**_mapping['nuances'], **_mapping['codes_presidentiels']}
+candidat_famille_mapping = _mapping['candidats_presidentiels']
+tete_liste_famille_mapping = _mapping['tetes_de_liste']
 
-    # --- Droite ---
-    'LR': 'droite', 'DVD': 'droite', 'UDI': 'droite', 'UD': 'droite',
-    'UMP': 'droite', 'DTE': 'droite', 'CPNT': 'droite',
-    # Candidats présidentiels droite
-    'SARK': 'droite', 'CHIR': 'droite', 'MAME': 'droite',
-    'DUPO': 'droite', 'BOUT': 'droite', 'NIHO': 'droite',
-    'VILL': 'droite', 'PREP': 'droite', 'VOYN': 'droite',
-    'CHEV': 'droite', 'CHEM': 'droite', 'ROYA': 'gauche',
-    # Codes législatives préfixe L — droite
-    'LDVD': 'droite', 'LLR': 'droite', 'LUMP': 'droite', 'LDR': 'droite',
-    'LUD': 'droite', 'LCOP': 'droite', 'LCP': 'droite', 'LMAJ': 'droite',
-    'LDD': 'droite', 'LDLF': 'droite',
-    # Binômes cantonaux droite
-    'BC-UD': 'droite',
-
-    # --- Extrême droite ---
-    'RN': 'extreme_droite', 'REC': 'extreme_droite', 'EXD': 'extreme_droite',
-    'FN': 'extreme_droite', 'MNR': 'extreme_droite', 'FRN': 'extreme_droite',
-    'SAIN': 'extreme_droite', 'LAUT': 'extreme_droite',
-    # Codes législatives préfixe L — extrême droite
-    'LFN': 'extreme_droite', 'LRN': 'extreme_droite', 'LREC': 'extreme_droite',
-    'LEXD': 'extreme_droite', 'LXD': 'extreme_droite',
-    # Binômes cantonaux extrême droite
-    'BC-FN': 'extreme_droite', 'BC-RN': 'extreme_droite',
-
-    # --- Divers ---
-    'DIV': 'divers', 'REG': 'divers', 'DSV': 'divers', 'M-NC': 'divers',
-    'LDIV': 'divers', 'LDSV': 'divers',
-}
-
-# Fallback : mapping par nom de candidat (présidentielles 2017/2022 sans nuance)
-candidat_famille_mapping = {
-    # 2017
-    'MACRON': 'centre', 'LE PEN': 'extreme_droite', 'FILLON': 'droite',
-    'MÉLENCHON': 'gauche', 'HAMON': 'gauche', 'DUPONT-AIGNAN': 'droite',
-    'LASSALLE': 'divers', 'POUTOU': 'extreme_gauche', 'ARTHAUD': 'extreme_gauche',
-    'ASSELINEAU': 'divers', 'CHEMINADE': 'divers',
-    # 2022
-    'ZEMMOUR': 'extreme_droite', 'PÉCRESSE': 'droite', 'JADOT': 'gauche',
-    'HIDALGO': 'gauche', 'ROUSSEL': 'gauche',
-}
-
-def get_famille(nuance, nom=None):
+def get_famille(nuance, nom=None, tete_liste=None):
     if pd.isna(nuance) or nuance == '' or nuance == 'nan':
         if nom and nom in candidat_famille_mapping:
             return candidat_famille_mapping[nom]
+        if tete_liste and tete_liste in tete_liste_famille_mapping:
+            return tete_liste_famille_mapping[tete_liste]
         return 'divers'
     return nuance_mapping.get(nuance, 'divers')
 
@@ -138,14 +75,23 @@ for (id_el, bv), row in grouped_gen:
     for _, c_row in cands_bv.iterrows():
         nom_val = c_row.get('nom', '')
         prenom_val = c_row.get('prenom', '')
+        tete_liste_val = c_row.get('nom_tete_liste', '')
         # Convertir NaN pandas en None
         nom = None if pd.isna(nom_val) else str(nom_val).strip() or None
         prenom = None if pd.isna(prenom_val) else str(prenom_val).strip() or None
+        tete_liste = None if pd.isna(tete_liste_val) else str(tete_liste_val).strip() or None
+        # Pour les européennes sans nom, utiliser la tête de liste
+        display_nom = nom
+        display_prenom = prenom
+        if not nom and tete_liste:
+            parts_tl = tete_liste.split(' ', 1)
+            display_nom = parts_tl[0] if parts_tl else None
+            display_prenom = parts_tl[1] if len(parts_tl) > 1 else None
         candidats_list.append({
-            "nom": nom,
-            "prenom": prenom,
+            "nom": display_nom,
+            "prenom": display_prenom,
             "nuance": str(c_row.get('nuance', '')),
-            "famille": get_famille(str(c_row.get('nuance', '')), nom),
+            "famille": get_famille(str(c_row.get('nuance', '')), nom, tete_liste),
             "voix": int(c_row['voix']),
             "pourcentage": float(c_row['ratio_voix_exprimes'])
         })
