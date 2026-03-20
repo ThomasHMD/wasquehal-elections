@@ -5,12 +5,12 @@
     "tour": 1,
     "id_election": "1999_euro_t1",
     "total_voix": 6784,
+    "extreme_gauche": 5.62,
+    "gauche": 32.58,
     "centre": 24.43,
-    "divers": 4.27,
     "droite": 27.18,
     "extreme_droite": 5.93,
-    "extreme_gauche": 5.62,
-    "gauche": 32.58
+    "divers": 4.27
   },
   {
     "scrutin": "cantonal",
@@ -18,10 +18,12 @@
     "tour": 1,
     "id_election": "2001_cant_t1",
     "total_voix": 7242,
+    "extreme_gauche": 0.0,
+    "gauche": 38.41,
     "centre": 38.72,
     "droite": 8.04,
     "extreme_droite": 14.83,
-    "gauche": 38.41
+    "divers": 0.0
   },
   {
     "scrutin": "cantonal",
@@ -29,8 +31,12 @@
     "tour": 2,
     "id_election": "2001_cant_t2",
     "total_voix": 4490,
+    "extreme_gauche": 0.0,
+    "gauche": 31.6,
     "centre": 68.4,
-    "gauche": 31.6
+    "droite": 0.0,
+    "extreme_droite": 0.0,
+    "divers": 0.0
   },
   {
     "scrutin": "legislatives",
@@ -38,12 +44,12 @@
     "tour": 1,
     "id_election": "2002_legi_t1",
     "total_voix": 8292,
+    "extreme_gauche": 2.34,
+    "gauche": 24.71,
     "centre": 57.22,
-    "divers": 1.46,
     "droite": 2.39,
     "extreme_droite": 11.88,
-    "extreme_gauche": 2.34,
-    "gauche": 24.71
+    "divers": 1.46
   },
   {
     "scrutin": "legislatives",
@@ -51,8 +57,12 @@
     "tour": 2,
     "id_election": "2002_legi_t2",
     "total_voix": 7914,
+    "extreme_gauche": 0.0,
+    "gauche": 31.59,
     "centre": 68.41,
-    "gauche": 31.59
+    "droite": 0.0,
+    "extreme_droite": 0.0,
+    "divers": 0.0
   },
   {
     "scrutin": "presidentielle",
@@ -60,11 +70,12 @@
     "tour": 1,
     "id_election": "2002_pres_t1",
     "total_voix": 9289,
+    "extreme_gauche": 12.57,
+    "gauche": 35.56,
     "centre": 19.71,
     "droite": 30.83,
     "extreme_droite": 1.32,
-    "extreme_gauche": 12.57,
-    "gauche": 35.56
+    "divers": 0.0
   },
   {
     "scrutin": "presidentielle",
@@ -72,8 +83,12 @@
     "tour": 2,
     "id_election": "2002_pres_t2",
     "total_voix": 9966,
+    "extreme_gauche": 0.0,
+    "gauche": 16.9,
+    "centre": 0.0,
     "droite": 83.1,
-    "gauche": 16.9
+    "extreme_droite": 0.0,
+    "divers": 0.0
   },
   {
     "scrutin": "europeenne",
@@ -81,11 +96,12 @@
     "tour": 1,
     "id_election": "2004_euro_t1",
     "total_voix": 5423,
+    "extreme_gauche": 3.1,
+    "gauche": 34.96,
     "centre": 28.88,
     "droite": 23.4,
     "extreme_droite": 9.66,
-    "extreme_gauche": 3.1,
-    "gauche": 34.96
+    "divers": 0.0
   },
   {
     "scrutin": "regionales",
@@ -93,11 +109,12 @@
     "tour": 1,
     "id_election": "2004_regi_t1",
     "total_voix": 7674,
+    "extreme_gauche": 4.14,
+    "gauche": 35.98,
     "centre": 3.08,
     "droite": 42.17,
     "extreme_droite": 14.63,
-    "extreme_gauche": 4.14,
-    "gauche": 35.98
+    "divers": 0.0
   },
   {
     "scrutin": "regionales",
@@ -105,9 +122,12 @@
     "tour": 2,
     "id_election": "2004_regi_t2",
     "total_voix": 8151,
+    "extreme_gauche": 0.0,
+    "gauche": 41.66,
+    "centre": 0.0,
     "droite": 44.22,
     "extreme_droite": 14.12,
-    "gauche": 41.66
+    "divers": 0.0
   },
   {
     "scrutin": "legislatives",
@@ -115,12 +135,12 @@
     "tour": 1,
     "id_election": "2007_legi_t1",
     "total_voix": 7940,
+    "extreme_gauche": 1.76,
+    "gauche": 33.43,
     "centre": 7.38,
-    "divers": 0.86,
     "droite": 47.39,
     "extreme_droite": 9.18,
-    "extreme_gauche": 1.76,
-    "gauche": 33.43
+    "divers": 0.86
   },
   {
     "scrutin": "legislatives",
@@ -128,8 +148,12 @@
     "tour": 2,
     "id_election": "2007_legi_t2",
     "total_voix": 7649,
+    "extreme_gauche": 0.0,
+    "gauche": 44.76,
+    "centre": 0.0,
     "droite": 55.24,
-    "gauche": 44.76
+    "extreme_droite": 0.0,
+    "divers": 0.0
   },
   {
     "scrutin": "presidentielle",
@@ -137,10 +161,12 @@
     "tour": 1,
     "id_election": "2007_pres_t1",
     "total_voix": 11324,
+    "extreme_gauche": 7.19,
+    "gauche": 28.11,
     "centre": 24.22,
     "droite": 40.48,
-    "extreme_gauche": 7.19,
-    "gauche": 28.11
+    "extreme_droite": 0.0,
+    "divers": 0.0
   },
   {
     "scrutin": "presidentielle",
@@ -148,8 +174,12 @@
     "tour": 2,
     "id_election": "2007_pres_t2",
     "total_voix": 11134,
+    "extreme_gauche": 0.0,
+    "gauche": 39.44,
+    "centre": 0.0,
     "droite": 60.56,
-    "gauche": 39.44
+    "extreme_droite": 0.0,
+    "divers": 0.0
   },
   {
     "scrutin": "cantonal",
@@ -157,9 +187,12 @@
     "tour": 1,
     "id_election": "2008_cant_t1",
     "total_voix": 7313,
-    "divers": 48.5,
+    "extreme_gauche": 0.0,
+    "gauche": 41.67,
+    "centre": 0.0,
+    "droite": 0.0,
     "extreme_droite": 9.83,
-    "gauche": 41.67
+    "divers": 48.5
   },
   {
     "scrutin": "cantonal",
@@ -167,8 +200,12 @@
     "tour": 2,
     "id_election": "2008_cant_t2",
     "total_voix": 5451,
-    "divers": 60.72,
-    "gauche": 39.28
+    "extreme_gauche": 0.0,
+    "gauche": 39.28,
+    "centre": 0.0,
+    "droite": 0.0,
+    "extreme_droite": 0.0,
+    "divers": 60.72
   },
   {
     "scrutin": "europeenne",
@@ -176,11 +213,12 @@
     "tour": 1,
     "id_election": "2009_euro_t1",
     "total_voix": 5348,
+    "extreme_gauche": 5.91,
+    "gauche": 28.48,
     "centre": 11.26,
     "droite": 42.07,
     "extreme_droite": 12.28,
-    "extreme_gauche": 5.91,
-    "gauche": 28.48
+    "divers": 0.0
   },
   {
     "scrutin": "regionales",
@@ -188,11 +226,12 @@
     "tour": 1,
     "id_election": "2010_regi_t1",
     "total_voix": 5993,
+    "extreme_gauche": 3.14,
+    "gauche": 35.84,
     "centre": 5.96,
     "droite": 40.48,
     "extreme_droite": 14.58,
-    "extreme_gauche": 3.14,
-    "gauche": 35.84
+    "divers": 0.0
   },
   {
     "scrutin": "regionales",
@@ -200,9 +239,12 @@
     "tour": 2,
     "id_election": "2010_regi_t2",
     "total_voix": 6710,
+    "extreme_gauche": 0.0,
+    "gauche": 43.04,
+    "centre": 0.0,
     "droite": 40.04,
     "extreme_droite": 16.92,
-    "gauche": 43.04
+    "divers": 0.0
   },
   {
     "scrutin": "legislatives",
@@ -210,11 +252,12 @@
     "tour": 1,
     "id_election": "2012_legi_t1",
     "total_voix": 8043,
+    "extreme_gauche": 1.04,
+    "gauche": 38.48,
     "centre": 44.91,
     "droite": 0.87,
     "extreme_droite": 14.7,
-    "extreme_gauche": 1.04,
-    "gauche": 38.48
+    "divers": 0.0
   },
   {
     "scrutin": "legislatives",
@@ -222,8 +265,12 @@
     "tour": 2,
     "id_election": "2012_legi_t2",
     "total_voix": 7593,
+    "extreme_gauche": 0.0,
+    "gauche": 42.62,
     "centre": 57.38,
-    "gauche": 42.62
+    "droite": 0.0,
+    "extreme_droite": 0.0,
+    "divers": 0.0
   },
   {
     "scrutin": "presidentielle",
@@ -231,10 +278,12 @@
     "tour": 1,
     "id_election": "2012_pres_t1",
     "total_voix": 11529,
+    "extreme_gauche": 11.61,
+    "gauche": 40.7,
     "centre": 10.73,
     "droite": 36.96,
-    "extreme_gauche": 11.61,
-    "gauche": 40.7
+    "extreme_droite": 0.0,
+    "divers": 0.0
   },
   {
     "scrutin": "presidentielle",
@@ -242,8 +291,12 @@
     "tour": 2,
     "id_election": "2012_pres_t2",
     "total_voix": 11112,
+    "extreme_gauche": 0.0,
+    "gauche": 41.89,
+    "centre": 0.0,
     "droite": 58.11,
-    "gauche": 41.89
+    "extreme_droite": 0.0,
+    "divers": 0.0
   },
   {
     "scrutin": "europeenne",
@@ -251,12 +304,12 @@
     "tour": 1,
     "id_election": "2014_euro_t1",
     "total_voix": 6239,
+    "extreme_gauche": 1.41,
+    "gauche": 24.39,
     "centre": 14.63,
-    "divers": 2.24,
     "droite": 34.64,
     "extreme_droite": 22.68,
-    "extreme_gauche": 1.41,
-    "gauche": 24.39
+    "divers": 2.24
   },
   {
     "scrutin": "municipales",
@@ -264,9 +317,12 @@
     "tour": 1,
     "id_election": "2014_muni_t1",
     "total_voix": 8858,
+    "extreme_gauche": 0.0,
+    "gauche": 29.71,
+    "centre": 0.0,
     "droite": 58.49,
     "extreme_droite": 11.8,
-    "gauche": 29.71
+    "divers": 0.0
   },
   {
     "scrutin": "municipales",
@@ -274,9 +330,12 @@
     "tour": 2,
     "id_election": "2014_muni_t2",
     "total_voix": 8925,
-    "divers": 24.1,
+    "extreme_gauche": 0.0,
+    "gauche": 0.0,
+    "centre": 0.0,
     "droite": 66.01,
-    "extreme_droite": 9.89
+    "extreme_droite": 9.89,
+    "divers": 24.1
   },
   {
     "scrutin": "departementales",
@@ -284,9 +343,12 @@
     "tour": 1,
     "id_election": "2015_dpmt_t1",
     "total_voix": 6510,
+    "extreme_gauche": 0.0,
+    "gauche": 30.22,
+    "centre": 0.0,
     "droite": 41.77,
     "extreme_droite": 28.02,
-    "gauche": 30.22
+    "divers": 0.0
   },
   {
     "scrutin": "departementales",
@@ -294,8 +356,12 @@
     "tour": 2,
     "id_election": "2015_dpmt_t2",
     "total_voix": 5962,
+    "extreme_gauche": 0.0,
+    "gauche": 0.0,
+    "centre": 0.0,
     "droite": 69.47,
-    "extreme_droite": 30.53
+    "extreme_droite": 30.53,
+    "divers": 0.0
   },
   {
     "scrutin": "regionales",
@@ -303,11 +369,12 @@
     "tour": 1,
     "id_election": "2015_regi_t1",
     "total_voix": 8168,
-    "divers": 0.71,
+    "extreme_gauche": 0.86,
+    "gauche": 27.11,
+    "centre": 0.0,
     "droite": 45.2,
     "extreme_droite": 26.13,
-    "extreme_gauche": 0.86,
-    "gauche": 27.11
+    "divers": 0.71
   },
   {
     "scrutin": "regionales",
@@ -315,8 +382,12 @@
     "tour": 2,
     "id_election": "2015_regi_t2",
     "total_voix": 9010,
+    "extreme_gauche": 0.0,
+    "gauche": 0.0,
+    "centre": 0.0,
     "droite": 72.66,
-    "extreme_droite": 27.34
+    "extreme_droite": 27.34,
+    "divers": 0.0
   },
   {
     "scrutin": "legislatives",
@@ -324,12 +395,12 @@
     "tour": 1,
     "id_election": "2017_legi_t1",
     "total_voix": 7442,
+    "extreme_gauche": 0.75,
+    "gauche": 20.79,
     "centre": 41.31,
-    "divers": 0.77,
     "droite": 23.33,
     "extreme_droite": 13.06,
-    "extreme_gauche": 0.75,
-    "gauche": 20.79
+    "divers": 0.77
   },
   {
     "scrutin": "legislatives",
@@ -337,8 +408,12 @@
     "tour": 2,
     "id_election": "2017_legi_t2",
     "total_voix": 5815,
+    "extreme_gauche": 0.0,
+    "gauche": 0.0,
     "centre": 54.19,
-    "droite": 45.81
+    "droite": 45.81,
+    "extreme_droite": 0.0,
+    "divers": 0.0
   },
   {
     "scrutin": "presidentielle",
@@ -346,12 +421,12 @@
     "tour": 1,
     "id_election": "2017_pres_t1",
     "total_voix": 11948,
+    "extreme_gauche": 1.17,
+    "gauche": 23.15,
     "centre": 25.36,
-    "divers": 1.47,
     "droite": 31.42,
     "extreme_droite": 17.43,
-    "extreme_gauche": 1.17,
-    "gauche": 23.15
+    "divers": 1.47
   },
   {
     "scrutin": "presidentielle",
@@ -359,8 +434,12 @@
     "tour": 2,
     "id_election": "2017_pres_t2",
     "total_voix": 10250,
+    "extreme_gauche": 0.0,
+    "gauche": 0.0,
     "centre": 71.67,
-    "extreme_droite": 28.33
+    "droite": 0.0,
+    "extreme_droite": 28.33,
+    "divers": 0.0
   },
   {
     "scrutin": "europeenne",
@@ -368,6 +447,11 @@
     "tour": 1,
     "id_election": "2019_euro_t1",
     "total_voix": 7579,
+    "extreme_gauche": 0.0,
+    "gauche": 0.0,
+    "centre": 0.0,
+    "droite": 0.0,
+    "extreme_droite": 0.0,
     "divers": 100.0
   },
   {
@@ -376,9 +460,12 @@
     "tour": 1,
     "id_election": "2020_muni_t1",
     "total_voix": 5599,
+    "extreme_gauche": 0.0,
+    "gauche": 13.65,
     "centre": 12.56,
     "droite": 73.8,
-    "gauche": 13.65
+    "extreme_droite": 0.0,
+    "divers": 0.0
   },
   {
     "scrutin": "municipales",
@@ -386,8 +473,12 @@
     "tour": 2,
     "id_election": "2020_muni_t2",
     "total_voix": 5081,
+    "extreme_gauche": 0.0,
+    "gauche": 16.67,
+    "centre": 0.0,
     "droite": 83.33,
-    "gauche": 16.67
+    "extreme_droite": 0.0,
+    "divers": 0.0
   },
   {
     "scrutin": "departementales",
@@ -395,9 +486,12 @@
     "tour": 1,
     "id_election": "2021_dpmt_t1",
     "total_voix": 4575,
+    "extreme_gauche": 0.0,
+    "gauche": 28.5,
+    "centre": 0.0,
     "droite": 54.38,
     "extreme_droite": 17.11,
-    "gauche": 28.5
+    "divers": 0.0
   },
   {
     "scrutin": "departementales",
@@ -405,8 +499,12 @@
     "tour": 2,
     "id_election": "2021_dpmt_t2",
     "total_voix": 4593,
+    "extreme_gauche": 0.0,
+    "gauche": 33.75,
+    "centre": 0.0,
     "droite": 66.25,
-    "gauche": 33.75
+    "extreme_droite": 0.0,
+    "divers": 0.0
   },
   {
     "scrutin": "regionales",
@@ -414,12 +512,12 @@
     "tour": 1,
     "id_election": "2021_regi_t1",
     "total_voix": 4666,
+    "extreme_gauche": 1.41,
+    "gauche": 22.18,
     "centre": 13.5,
-    "divers": 1.63,
     "droite": 46.46,
     "extreme_droite": 14.81,
-    "extreme_gauche": 1.41,
-    "gauche": 22.18
+    "divers": 1.63
   },
   {
     "scrutin": "regionales",
@@ -427,9 +525,12 @@
     "tour": 2,
     "id_election": "2021_regi_t2",
     "total_voix": 4768,
+    "extreme_gauche": 0.0,
+    "gauche": 25.13,
+    "centre": 0.0,
     "droite": 60.51,
     "extreme_droite": 14.37,
-    "gauche": 25.13
+    "divers": 0.0
   },
   {
     "scrutin": "legislatives",
@@ -437,12 +538,12 @@
     "tour": 1,
     "id_election": "2022_legi_t1",
     "total_voix": 7526,
+    "extreme_gauche": 1.14,
+    "gauche": 25.05,
     "centre": 40.23,
-    "divers": 1.17,
     "droite": 14.46,
     "extreme_droite": 17.95,
-    "extreme_gauche": 1.14,
-    "gauche": 25.05
+    "divers": 1.17
   },
   {
     "scrutin": "legislatives",
@@ -450,8 +551,12 @@
     "tour": 2,
     "id_election": "2022_legi_t2",
     "total_voix": 7125,
+    "extreme_gauche": 0.0,
+    "gauche": 37.46,
     "centre": 62.54,
-    "gauche": 37.46
+    "droite": 0.0,
+    "extreme_droite": 0.0,
+    "divers": 0.0
   },
   {
     "scrutin": "presidentielle",
@@ -459,12 +564,12 @@
     "tour": 1,
     "id_election": "2022_pres_t1",
     "total_voix": 11307,
+    "extreme_gauche": 1.06,
+    "gauche": 28.98,
     "centre": 37.25,
-    "divers": 1.57,
     "droite": 6.67,
     "extreme_droite": 24.46,
-    "extreme_gauche": 1.06,
-    "gauche": 28.98
+    "divers": 1.57
   },
   {
     "scrutin": "presidentielle",
@@ -472,8 +577,12 @@
     "tour": 2,
     "id_election": "2022_pres_t2",
     "total_voix": 10795,
+    "extreme_gauche": 0.0,
+    "gauche": 0.0,
     "centre": 69.68,
-    "extreme_droite": 30.32
+    "droite": 0.0,
+    "extreme_droite": 30.32,
+    "divers": 0.0
   },
   {
     "scrutin": "europeenne",
@@ -481,12 +590,12 @@
     "tour": 1,
     "id_election": "2024_euro_t1",
     "total_voix": 8287,
+    "extreme_gauche": 0.49,
+    "gauche": 33.84,
     "centre": 20.74,
-    "divers": 3.35,
     "droite": 11.9,
     "extreme_droite": 29.67,
-    "extreme_gauche": 0.49,
-    "gauche": 33.84
+    "divers": 3.35
   },
   {
     "scrutin": "legislatives",
@@ -494,10 +603,12 @@
     "tour": 1,
     "id_election": "2024_legi_t1",
     "total_voix": 10664,
-    "centre": 45.41,
-    "extreme_droite": 27.35,
     "extreme_gauche": 1.1,
-    "gauche": 26.13
+    "gauche": 26.13,
+    "centre": 45.41,
+    "droite": 0.0,
+    "extreme_droite": 27.35,
+    "divers": 0.0
   },
   {
     "scrutin": "legislatives",
@@ -505,9 +616,12 @@
     "tour": 2,
     "id_election": "2024_legi_t2",
     "total_voix": 10605,
+    "extreme_gauche": 0.0,
+    "gauche": 24.6,
     "centre": 49.54,
+    "droite": 0.0,
     "extreme_droite": 25.86,
-    "gauche": 24.6
+    "divers": 0.0
   },
   {
     "scrutin": "municipales",
@@ -515,7 +629,11 @@
     "tour": 1,
     "id_election": "2026_muni_t1",
     "total_voix": 8232,
+    "extreme_gauche": 0.0,
+    "gauche": 25.92,
+    "centre": 0.0,
     "droite": 74.08,
-    "gauche": 25.92
+    "extreme_droite": 0.0,
+    "divers": 0.0
   }
 ]
