@@ -54,6 +54,7 @@ for id_el, entries in sorted(by_id.items()):
     if total_voix == 0:
         continue
 
+    ALL_FAMILLES = ['extreme_gauche', 'gauche', 'centre', 'droite', 'extreme_droite', 'divers']
     point = {
         "scrutin": first['scrutin'],
         "annee": first['annee'],
@@ -61,8 +62,9 @@ for id_el, entries in sorted(by_id.items()):
         "id_election": id_el,
         "total_voix": total_voix,
     }
-    for fam, voix in sorted(famille_voix.items()):
-        point[fam] = round(voix / total_voix * 100, 2)
+    # Always include ALL families (0 if absent) so Recharts stacks correctly
+    for fam in ALL_FAMILLES:
+        point[fam] = round(famille_voix.get(fam, 0) / total_voix * 100, 2)
 
     familles_data.append(point)
 
