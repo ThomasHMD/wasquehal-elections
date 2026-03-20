@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom'
+import { prefetchRoute } from '../../utils/routePrefetch'
 
 const NAV_LINKS = [
   { to: '/carte', label: 'Carte' },
@@ -19,6 +20,7 @@ export default function Header() {
           <NavLink
             key={to}
             to={to}
+            onMouseEnter={() => prefetchRoute(to)}
             className={({ isActive }) =>
               `px-3 py-1.5 rounded text-sm transition-colors whitespace-nowrap ${
                 isActive
