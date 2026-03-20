@@ -9,4 +9,14 @@ export default defineConfig({
     tailwindcss(),
   ],
   base: '/wasquehal-elections/',
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          maplibre: ['maplibre-gl'],
+          recharts: ['recharts'],
+        },
+      },
+    },
+  },
 })

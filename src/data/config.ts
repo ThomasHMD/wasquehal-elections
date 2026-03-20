@@ -54,7 +54,7 @@ export const SCRUTINS: Scrutin[] = [
 ]
 
 /** Scrutin affiché par défaut au chargement */
-export const DEFAULT_SCRUTIN_ID = '2022_pres_t2'
+export const DEFAULT_SCRUTIN_ID = '2026_muni_t1'
 
 /** Coordonnées centre de Wasquehal */
 export const MAP_CENTER: [number, number] = [3.130, 50.668]

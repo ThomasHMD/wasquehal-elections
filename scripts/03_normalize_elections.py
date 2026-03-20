@@ -59,7 +59,7 @@ nuance_mapping = {
     'SARK': 'droite', 'CHIR': 'droite', 'MAME': 'droite',
     'DUPO': 'droite', 'BOUT': 'droite', 'NIHO': 'droite',
     'VILL': 'droite', 'PREP': 'droite', 'VOYN': 'droite',
-    'CHEV': 'droite', 'CHEM': 'droite', 'ROYA': 'droite',
+    'CHEV': 'droite', 'CHEM': 'droite', 'ROYA': 'gauche',
     # Codes législatives préfixe L — droite
     'LDVD': 'droite', 'LLR': 'droite', 'LUMP': 'droite', 'LDR': 'droite',
     'LUD': 'droite', 'LCOP': 'droite', 'LCP': 'droite', 'LMAJ': 'droite',
@@ -82,8 +82,22 @@ nuance_mapping = {
     'LDIV': 'divers', 'LDSV': 'divers',
 }
 
-def get_famille(nuance):
-    if pd.isna(nuance) or nuance == '':
+# Fallback : mapping par nom de candidat (présidentielles 2017/2022 sans nuance)
+candidat_famille_mapping = {
+    # 2017
+    'MACRON': 'centre', 'LE PEN': 'extreme_droite', 'FILLON': 'droite',
+    'MÉLENCHON': 'gauche', 'HAMON': 'gauche', 'DUPONT-AIGNAN': 'droite',
+    'LASSALLE': 'divers', 'POUTOU': 'extreme_gauche', 'ARTHAUD': 'extreme_gauche',
+    'ASSELINEAU': 'divers', 'CHEMINADE': 'divers',
+    # 2022
+    'ZEMMOUR': 'extreme_droite', 'PÉCRESSE': 'droite', 'JADOT': 'gauche',
+    'HIDALGO': 'gauche', 'ROUSSEL': 'gauche',
+}
+
+def get_famille(nuance, nom=None):
+    if pd.isna(nuance) or nuance == '' or nuance == 'nan':
+        if nom and nom in candidat_famille_mapping:
+            return candidat_famille_mapping[nom]
         return 'divers'
     return nuance_mapping.get(nuance, 'divers')
 
@@ -131,7 +145,7 @@ for (id_el, bv), row in grouped_gen:
             "nom": nom,
             "prenom": prenom,
             "nuance": str(c_row.get('nuance', '')),
-            "famille": get_famille(str(c_row.get('nuance', ''))),
+            "famille": get_famille(str(c_row.get('nuance', '')), nom),
             "voix": int(c_row['voix']),
             "pourcentage": float(c_row['ratio_voix_exprimes'])
         })

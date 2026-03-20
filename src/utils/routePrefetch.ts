@@ -1,5 +1,5 @@
-// Route → lazy import mapping for prefetching on hover
-export const routeImports: Record<string, () => Promise<unknown>> = {
+// Route → lazy import mapping for prefetching
+const routeImports: Record<string, () => Promise<unknown>> = {
   '/carte': () => import('../pages/MapView'),
   '/evolution': () => import('../pages/EvolutionView'),
   '/profil': () => import('../pages/SocioView'),
@@ -13,4 +13,21 @@ export function prefetchRoute(path: string) {
   if (prefetched.has(path)) return
   prefetched.add(path)
   routeImports[path]?.()
+}
+
+// Prefetch all routes after initial load (idle time)
+export function prefetchAllRoutes() {
+  if (typeof requestIdleCallback !== 'undefined') {
+    requestIdleCallback(() => {
+      for (const path of Object.keys(routeImports)) {
+        prefetchRoute(path)
+      }
+    })
+  } else {
+    setTimeout(() => {
+      for (const path of Object.keys(routeImports)) {
+        prefetchRoute(path)
+      }
+    }, 2000)
+  }
 }

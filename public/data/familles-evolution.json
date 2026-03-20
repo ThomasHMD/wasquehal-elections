@@ -138,9 +138,9 @@
     "id_election": "2007_pres_t1",
     "total_voix": 11324,
     "centre": 24.22,
-    "droite": 59.14,
+    "droite": 40.48,
     "extreme_gauche": 7.19,
-    "gauche": 9.45
+    "gauche": 28.11
   },
   {
     "scrutin": "presidentielle",
@@ -148,7 +148,8 @@
     "tour": 2,
     "id_election": "2007_pres_t2",
     "total_voix": 11134,
-    "droite": 100.0
+    "droite": 60.56,
+    "gauche": 39.44
   },
   {
     "scrutin": "cantonal",
@@ -345,7 +346,12 @@
     "tour": 1,
     "id_election": "2017_pres_t1",
     "total_voix": 11948,
-    "divers": 100.0
+    "centre": 25.36,
+    "divers": 1.47,
+    "droite": 31.42,
+    "extreme_droite": 17.43,
+    "extreme_gauche": 1.17,
+    "gauche": 23.15
   },
   {
     "scrutin": "presidentielle",
@@ -353,7 +359,8 @@
     "tour": 2,
     "id_election": "2017_pres_t2",
     "total_voix": 10250,
-    "divers": 100.0
+    "centre": 71.67,
+    "extreme_droite": 28.33
   },
   {
     "scrutin": "europeenne",
@@ -452,7 +459,12 @@
     "tour": 1,
     "id_election": "2022_pres_t1",
     "total_voix": 11307,
-    "divers": 100.0
+    "centre": 37.25,
+    "divers": 1.57,
+    "droite": 6.67,
+    "extreme_droite": 24.46,
+    "extreme_gauche": 1.06,
+    "gauche": 28.98
   },
   {
     "scrutin": "presidentielle",
@@ -460,7 +472,8 @@
     "tour": 2,
     "id_election": "2022_pres_t2",
     "total_voix": 10795,
-    "divers": 100.0
+    "centre": 69.68,
+    "extreme_droite": 30.32
   },
   {
     "scrutin": "europeenne",
