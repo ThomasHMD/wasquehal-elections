@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && vite build && cp dist/index.html dist/404.html",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -13,7 +13,6 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.1.0",
-    "@observablehq/plot": "^0.6.16",
     "recharts": "^2.13.0"
   },
   "devDependencies": {

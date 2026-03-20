@@ -19,31 +19,67 @@ for col in ['inscrits', 'votants', 'abstentions', 'blancs', 'nuls', 'exprimes']:
 df_cand['voix'] = pd.to_numeric(df_cand['voix'], errors='coerce').fillna(0).astype(int)
 df_cand['ratio_voix_exprimes'] = pd.to_numeric(df_cand['ratio_voix_exprimes'], errors='coerce').fillna(0.0)
 
-# Parse id_election (e.g. 2022_pres_t1)
-def parse_election(id_el):
-    parts = id_el.split('_')
-    year = int(parts[0])
-    scrutin_map = {
-        'pres': 'presidentielle',
-        'leg': 'legislative',
-        'muni': 'municipale',
-        'euro': 'europeenne',
-        'reg': 'regionale',
-        'dep': 'departementale'
-    }
-    scrutin = scrutin_map.get(parts[1], parts[1])
-    tour = 1
-    if len(parts) > 2 and parts[2].startswith('t'):
-        tour = int(parts[2][1:])
-    return annee, scrutin, tour
-
-# Family mapping
+# Family mapping — 117 nuance codes couverts
 nuance_mapping = {
-    'EXG': 'gauche', 'LFI': 'gauche', 'COM': 'gauche', 'FI': 'gauche', 'ECO': 'gauche', 'SOC': 'gauche', 'DVG': 'gauche', 'RDG': 'gauche', 'UG': 'gauche', 'NUP': 'gauche',
-    'REM': 'centre', 'ENS': 'centre', 'MDM': 'centre', 'DVC': 'centre', 'UC': 'centre', 'HOR': 'centre',
+    # --- Gauche ---
+    'EXG': 'extreme_gauche', 'LFI': 'gauche', 'COM': 'gauche', 'FI': 'gauche',
+    'ECO': 'gauche', 'SOC': 'gauche', 'DVG': 'gauche', 'RDG': 'gauche',
+    'UG': 'gauche', 'NUP': 'gauche', 'FG': 'gauche', 'VEC': 'gauche',
+    'DXG': 'extreme_gauche', 'GAU': 'gauche',
+    # Candidats présidentiels gauche
+    'HOLL': 'gauche', 'JOSP': 'gauche', 'TAUB': 'gauche',
+    'LAGU': 'extreme_gauche', 'MELE': 'extreme_gauche', 'MEGR': 'extreme_gauche',
+    'BESA': 'extreme_gauche', 'BUFF': 'extreme_gauche', 'HUE': 'gauche',
+    'BOVE': 'gauche', 'JOLY': 'gauche', 'ARTH': 'extreme_gauche',
+    'POUT': 'extreme_gauche', 'GLUC': 'extreme_gauche',
+    # Codes législatives préfixe L — gauche
+    'LDVG': 'gauche', 'LSOC': 'gauche', 'LCOM': 'gauche', 'LFG': 'gauche',
+    'LEXG': 'extreme_gauche', 'LDG': 'gauche', 'LUG': 'gauche', 'LUGE': 'gauche',
+    'LECO': 'gauche', 'LVEC': 'gauche', 'LVEG': 'gauche', 'LVE': 'gauche',
+    'LFI': 'gauche', 'LGA': 'gauche', 'LXG': 'extreme_gauche',
+    'LO': 'extreme_gauche', 'LCR': 'extreme_gauche', 'LPS': 'gauche',
+    'LEPA': 'gauche', 'LEPE': 'gauche',
+    # Binômes cantonaux gauche
+    'BC-SOC': 'gauche', 'BC-FG': 'gauche', 'BC-UGE': 'gauche', 'BC-VEC': 'gauche',
+
+    # --- Centre ---
+    'REM': 'centre', 'ENS': 'centre', 'MDM': 'centre', 'DVC': 'centre',
+    'UC': 'centre', 'HOR': 'centre', 'CEN': 'centre', 'UDF': 'centre',
+    'UDFD': 'centre', 'NCE': 'centre', 'MNA': 'centre',
+    # Candidats présidentiels centre
+    'BAYR': 'centre', 'MADE': 'centre', 'SCHI': 'centre',
+    # Codes législatives préfixe L — centre
+    'LREM': 'centre', 'LENS': 'centre', 'LCMD': 'centre', 'LDV': 'centre',
+    'LPC': 'centre', 'LUDF': 'centre', 'LUC': 'centre',
+
+    # --- Droite ---
     'LR': 'droite', 'DVD': 'droite', 'UDI': 'droite', 'UD': 'droite',
-    'RN': 'extreme_droite', 'REC': 'extreme_droite', 'EXD': 'extreme_droite', 'FN': 'extreme_droite',
-    'DIV': 'divers', 'REG': 'divers', 'ABS': 'divers'
+    'UMP': 'droite', 'DTE': 'droite', 'CPNT': 'droite',
+    # Candidats présidentiels droite
+    'SARK': 'droite', 'CHIR': 'droite', 'MAME': 'droite',
+    'DUPO': 'droite', 'BOUT': 'droite', 'NIHO': 'droite',
+    'VILL': 'droite', 'PREP': 'droite', 'VOYN': 'droite',
+    'CHEV': 'droite', 'CHEM': 'droite', 'ROYA': 'droite',
+    # Codes législatives préfixe L — droite
+    'LDVD': 'droite', 'LLR': 'droite', 'LUMP': 'droite', 'LDR': 'droite',
+    'LUD': 'droite', 'LCOP': 'droite', 'LCP': 'droite', 'LMAJ': 'droite',
+    'LDD': 'droite', 'LDLF': 'droite',
+    # Binômes cantonaux droite
+    'BC-UD': 'droite',
+
+    # --- Extrême droite ---
+    'RN': 'extreme_droite', 'REC': 'extreme_droite', 'EXD': 'extreme_droite',
+    'FN': 'extreme_droite', 'MNR': 'extreme_droite', 'FRN': 'extreme_droite',
+    'SAIN': 'extreme_droite', 'LAUT': 'extreme_droite',
+    # Codes législatives préfixe L — extrême droite
+    'LFN': 'extreme_droite', 'LRN': 'extreme_droite', 'LREC': 'extreme_droite',
+    'LEXD': 'extreme_droite', 'LXD': 'extreme_droite',
+    # Binômes cantonaux extrême droite
+    'BC-FN': 'extreme_droite', 'BC-RN': 'extreme_droite',
+
+    # --- Divers ---
+    'DIV': 'divers', 'REG': 'divers', 'DSV': 'divers', 'M-NC': 'divers',
+    'LDIV': 'divers', 'LDSV': 'divers',
 }
 
 def get_famille(nuance):

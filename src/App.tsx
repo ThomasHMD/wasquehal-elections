@@ -1,22 +1,30 @@
+import { lazy, Suspense } from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import Layout from './components/layout/Layout'
-import MapView from './pages/MapView'
-import EvolutionView from './pages/EvolutionView'
-import SocioView from './pages/SocioView'
-import CompareView from './pages/CompareView'
-import AboutView from './pages/AboutView'
+
+const MapView = lazy(() => import('./pages/MapView'))
+const EvolutionView = lazy(() => import('./pages/EvolutionView'))
+const SocioView = lazy(() => import('./pages/SocioView'))
+const CompareView = lazy(() => import('./pages/CompareView'))
+const AboutView = lazy(() => import('./pages/AboutView'))
+
+const Loading = () => (
+  <div className="flex-1 flex items-center justify-center text-slate-400 text-sm animate-pulse">
+    Chargement…
+  </div>
+)
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Navigate to="/carte" replace />} />
-          <Route path="carte" element={<MapView />} />
-          <Route path="evolution" element={<EvolutionView />} />
-          <Route path="profil" element={<SocioView />} />
-          <Route path="comparer" element={<CompareView />} />
-          <Route path="methodologie" element={<AboutView />} />
+          <Route path="carte" element={<Suspense fallback={<Loading />}><MapView /></Suspense>} />
+          <Route path="evolution" element={<Suspense fallback={<Loading />}><EvolutionView /></Suspense>} />
+          <Route path="profil" element={<Suspense fallback={<Loading />}><SocioView /></Suspense>} />
+          <Route path="comparer" element={<Suspense fallback={<Loading />}><CompareView /></Suspense>} />
+          <Route path="methodologie" element={<Suspense fallback={<Loading />}><AboutView /></Suspense>} />
         </Route>
       </Routes>
     </BrowserRouter>

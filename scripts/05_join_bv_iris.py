@@ -61,6 +61,12 @@ for idx, bv_row in gdf_bv_proj.iterrows():
                         "overlap_pct": round(overlap_pct, 2)
                     })
     
+    # Normalize overlaps so they sum to 100%
+    total = sum(o['overlap_pct'] for o in overlaps)
+    if total > 0 and abs(total - 100.0) > 0.01:
+        for o in overlaps:
+            o['overlap_pct'] = round(o['overlap_pct'] / total * 100, 2)
+
     # Sort overlaps by percentage, highest first
     overlaps = sorted(overlaps, key=lambda x: x['overlap_pct'], reverse=True)
     mapping[str(bv_code)] = overlaps

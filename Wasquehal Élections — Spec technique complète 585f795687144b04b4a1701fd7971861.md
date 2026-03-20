@@ -492,42 +492,85 @@ jobs:
 
 ### Phase 2 — Squelette de l'app *(~1-2 jours)*
 
-- [ ]  Init Vite + React + TypeScript + Tailwind
-- [ ]  Layout (header, sidebar, routing)
-- [ ]  Hooks de chargement des données
-- [ ]  Carte de base avec MapLibre (affichage des BV)
+- [x]  Init Vite + React + TypeScript + Tailwind (Vite 6, React 19, Tailwind 4)
+- [x]  Layout (Header avec 5 onglets, Sidebar, Layout 3 colonnes, routing React Router 7)
+- [x]  Hooks de chargement des données (useElectionData, useGeoData, useParticipationData, useSocioData)
+- [x]  Carte de base avec MapLibre (affichage des 9 BV)
 
 ### Phase 3 — Vue Carte *(~2-3 jours)*
 
-- [ ]  Coloration choroplèthe par métrique
-- [ ]  Popup au clic avec résultats détaillés
-- [ ]  Sélecteurs de scrutin / tour / métrique
-- [ ]  Légende dynamique
+- [x]  Coloration choroplèthe par métrique (abstention, famille en tête, score candidat)
+- [x]  Popup au clic avec résultats détaillés (MapPopup avec barres participation + résultats)
+- [x]  Sélecteurs de scrutin / tour / métrique (ScrutinSelector groupé + MetriqueSelector avec légende)
+- [x]  Légende dynamique (intégrée au MetriqueSelector)
 
 ### Phase 4 — Vue Évolution *(~2 jours)*
 
-- [ ]  Graphique abstention temporelle
-- [ ]  Graphique évolution par famille politique
-- [ ]  Heatmap de volatilité
+- [x]  Graphique abstention temporelle (AbstentionChart via Recharts LineChart)
+- [x]  Graphique évolution par famille politique (FamilleEvolutionChart, stacked AreaChart 100%)
+- [x]  Heatmap de volatilité (BVHeatmap, grille BV × scrutin colorée par abstention)
 
 ### Phase 5 — Vue Profil socio *(~2-3 jours)*
 
-- [ ]  Carte IRIS + indicateurs socio
-- [ ]  Scatter plot corrélation socio × vote
-- [ ]  Radar chart par IRIS
+- [x]  Tableau IRIS avec indicateurs socio (population, revenu, pauvreté, CSP…)
+- [ ]  Scatter plot corrélation socio × vote (non implémenté)
+- [x]  Radar chart par IRIS (SocioRadar, profil normalisé multi-dimensionnel)
 
 ### Phase 6 — Vue Comparaison *(~1-2 jours)*
 
-- [ ]  Double carte synchronisée
-- [ ]  Carte de différence
-- [ ]  Tableau comparatif
+- [x]  Double carte synchronisée (CompareView avec deux ElectionMap côte à côte)
+- [ ]  Carte de différence (delta entre deux scrutins — non implémentée)
+- [x]  Tableau comparatif (tableau chiffré avec deltas par BV)
 
 ### Phase 7 — Polish *(~1-2 jours)*
 
-- [ ]  Responsive mobile
-- [ ]  Page méthodologie
-- [ ]  README
-- [ ]  Deploy GitHub Pages
+- [ ]  Responsive mobile (desktop only actuellement)
+- [x]  Page méthodologie (AboutView avec sources, limites, licence)
+- [x]  README (documentation.md)
+- [x]  Deploy GitHub Pages (CI/CD GitHub Actions configuré, base path `/wasquehal-elections/`)
+
+### Phase 9.5 — Finalisation *(audit qualité)*
+
+#### Lot 1 — Pipeline données (P0)
+
+- [x] Compléter le mapping des nuances politiques (117 codes couverts, dont codes candidats présidentiels, préfixes L- législatives, BC- binômes cantonaux)
+- [x] Supprimer le dead code `parse_election()` (bug `annee` vs `year`, jamais appelée)
+- [x] Normaliser les overlaps BV-IRIS à 100% (corrige les >100% dus aux imprécisions géométriques)
+- [x] Remplacer les données socio mock (random.seed(42)) par les vraies données INSEE millésime 2021
+- [x] Ajouter script `06_sync_to_public.py` : copie data/processed → public/data + split élections + régénération familles-evolution.json
+
+#### Lot 2 — Frontend : déploiement GitHub Pages (P0)
+
+- [x] Créer `assetUrl()` et préfixer tous les fetch avec `import.meta.env.BASE_URL`
+- [x] Ajouter `basename` au `BrowserRouter`
+- [x] Copier `index.html` → `404.html` dans le script build (SPA routing GitHub Pages)
+- [x] Ajouter vérification `r.ok` dans `useGeoData`
+- [x] Ajouter `.catch()` error handling dans `useFamillesData`
+
+#### Lot 3 — Performance (P1)
+
+- [x] Code splitting avec `React.lazy` + `Suspense` (MapLibre ne charge que sur /carte)
+- [x] Retirer `@observablehq/plot` (jamais importé, ~50KB mort)
+
+#### Lot 4 — UX (P1)
+
+- [x] Conserver la métrique sélectionnée au changement de scrutin
+- [x] Tri numérique des BV dans CompareView (au lieu d'alphabétique)
+- [x] Documenter les limitations dans AboutView (BV 0016 créé en 2017, blancs avant 2014)
+- [x] Afficher le nombre de BV et note historique dans la sidebar MapView
+
+#### Lot 5 — Documentation pipeline (P2)
+
+- [x] Créer `scripts/requirements.txt`
+- [ ] Documenter l'ordre d'exécution dans le README
+
+### Problèmes résolus
+
+- ~~⚠️ **Données socio-démographiques en mock**~~ → Remplacées par données INSEE réelles (millésime 2021)
+- ~~⚠️ **Mapping nuances incomplet (40/117)**~~ → 117/117 codes couverts, familles correctes sur tous les scrutins
+- ~~⚠️ **Chemins fetch cassés sur GitHub Pages**~~ → `assetUrl()` + basename BrowserRouter
+- ~~⚠️ **Bundle JS trop lourd**~~ → Code splitting React.lazy, suppression dep morte
+- ⚠️ **49 scrutins au lieu de 12 prévus** : le pipeline a récupéré des données depuis 1999, dépassant la spec "10 dernières années" (conservé volontairement)
 
 **Estimation totale : 11 à 17 jours** de développement effectif (en solo).
 

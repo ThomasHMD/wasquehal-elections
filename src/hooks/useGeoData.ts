@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { assetUrl } from '../utils/assetUrl'
 
 // Cache global GeoJSON
 const geoCache = new Map<string, GeoJSON.FeatureCollection>()
@@ -6,7 +7,9 @@ const geoCache = new Map<string, GeoJSON.FeatureCollection>()
 async function fetchGeo(url: string): Promise<GeoJSON.FeatureCollection> {
   const cached = geoCache.get(url)
   if (cached) return cached
-  const data: GeoJSON.FeatureCollection = await fetch(url).then(r => r.json())
+  const r = await fetch(url)
+  if (!r.ok) throw new Error(`GeoJSON introuvable: ${url}`)
+  const data: GeoJSON.FeatureCollection = await r.json()
   geoCache.set(url, data)
   return data
 }
@@ -18,11 +21,11 @@ interface UseGeoDataResult {
 }
 
 export function useBVGeo(): UseGeoDataResult {
-  return useGeoFile('/geo/bv.geojson')
+  return useGeoFile(assetUrl('/geo/bv.geojson'))
 }
 
 export function useIrisGeo(): UseGeoDataResult {
-  return useGeoFile('/geo/iris.geojson')
+  return useGeoFile(assetUrl('/geo/iris.geojson'))
 }
 
 function useGeoFile(url: string): UseGeoDataResult {

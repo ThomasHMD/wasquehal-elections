@@ -1,1 +1,508 @@
-[{"scrutin":"europeenne","annee":1999,"tour":1,"id_election":"1999_euro_t1","total_voix":6784,"gauche":12.63,"divers":74.91,"droite":12.46},{"scrutin":"cantonal","annee":2001,"tour":1,"id_election":"2001_cant_t1","total_voix":7242,"gauche":25.5,"divers":56.24,"droite":8.04,"extreme_droite":10.22},{"scrutin":"cantonal","annee":2001,"tour":2,"id_election":"2001_cant_t2","total_voix":4490,"gauche":31.6,"divers":68.4},{"scrutin":"legislatives","annee":2002,"tour":1,"id_election":"2002_legi_t1","total_voix":8292,"gauche":22.93,"divers":65.22,"droite":0.84,"extreme_droite":11.01},{"scrutin":"presidentielle","annee":2002,"tour":1,"id_election":"2002_pres_t1","total_voix":9289,"divers":100.0},{"scrutin":"legislatives","annee":2002,"tour":2,"id_election":"2002_legi_t2","total_voix":7914,"gauche":31.59,"divers":68.41},{"scrutin":"presidentielle","annee":2002,"tour":2,"id_election":"2002_pres_t2","total_voix":9966,"divers":100.0},{"scrutin":"europeenne","annee":2004,"tour":1,"id_election":"2004_euro_t1","total_voix":5423,"divers":100.0},{"scrutin":"regionales","annee":2004,"tour":1,"id_election":"2004_regi_t1","total_voix":7674,"divers":100.0},{"scrutin":"regionales","annee":2004,"tour":2,"id_election":"2004_regi_t2","total_voix":8151,"divers":100.0},{"scrutin":"legislatives","annee":2007,"tour":1,"id_election":"2007_legi_t1","total_voix":7940,"gauche":32.86,"extreme_droite":9.18,"divers":57.96},{"scrutin":"presidentielle","annee":2007,"tour":1,"id_election":"2007_pres_t1","total_voix":11324,"divers":100.0},{"scrutin":"legislatives","annee":2007,"tour":2,"id_election":"2007_legi_t2","total_voix":7649,"gauche":44.76,"divers":55.24},{"scrutin":"presidentielle","annee":2007,"tour":2,"id_election":"2007_pres_t2","total_voix":11134,"divers":100.0},{"scrutin":"cantonal","annee":2008,"tour":1,"id_election":"2008_cant_t1","total_voix":7313,"divers":56.57,"extreme_droite":9.83,"gauche":33.6},{"scrutin":"cantonal","annee":2008,"tour":2,"id_election":"2008_cant_t2","total_voix":5451,"gauche":39.28,"divers":60.72},{"scrutin":"europeenne","annee":2009,"tour":1,"id_election":"2009_euro_t1","total_voix":5348,"divers":100.0},{"scrutin":"regionales","annee":2010,"tour":1,"id_election":"2010_regi_t1","total_voix":5993,"divers":100.0},{"scrutin":"regionales","annee":2010,"tour":2,"id_election":"2010_regi_t2","total_voix":6710,"divers":100.0},{"scrutin":"legislatives","annee":2012,"tour":1,"id_election":"2012_legi_t1","total_voix":8043,"extreme_droite":14.7,"divers":49.87,"gauche":34.56,"droite":0.87},{"scrutin":"presidentielle","annee":2012,"tour":1,"id_election":"2012_pres_t1","total_voix":11529,"divers":100.0},{"scrutin":"legislatives","annee":2012,"tour":2,"id_election":"2012_legi_t2","total_voix":7593,"divers":57.38,"gauche":42.62},{"scrutin":"presidentielle","annee":2012,"tour":2,"id_election":"2012_pres_t2","total_voix":11112,"divers":100.0},{"scrutin":"europeenne","annee":2014,"tour":1,"id_election":"2014_euro_t1","total_voix":6239,"divers":100.0},{"scrutin":"municipales","annee":2014,"tour":1,"id_election":"2014_muni_t1","total_voix":8858,"divers":100.0},{"scrutin":"municipales","annee":2014,"tour":2,"id_election":"2014_muni_t2","total_voix":8925,"divers":100.0},{"scrutin":"departementales","annee":2015,"tour":1,"id_election":"2015_dpmt_t1","total_voix":6510,"divers":100.0},{"scrutin":"regionales","annee":2015,"tour":1,"id_election":"2015_regi_t1","total_voix":8168,"divers":100.0},{"scrutin":"departementales","annee":2015,"tour":2,"id_election":"2015_dpmt_t2","total_voix":5962,"divers":100.0},{"scrutin":"regionales","annee":2015,"tour":2,"id_election":"2015_regi_t2","total_voix":9010,"divers":100.0},{"scrutin":"legislatives","annee":2017,"tour":1,"id_election":"2017_legi_t1","total_voix":7442,"gauche":21.54,"divers":0.77,"centre":41.31,"droite":23.33,"extreme_droite":13.06},{"scrutin":"presidentielle","annee":2017,"tour":1,"id_election":"2017_pres_t1","total_voix":11948,"divers":100.0},{"scrutin":"legislatives","annee":2017,"tour":2,"id_election":"2017_legi_t2","total_voix":5815,"centre":54.19,"droite":45.81},{"scrutin":"presidentielle","annee":2017,"tour":2,"id_election":"2017_pres_t2","total_voix":10250,"divers":100.0},{"scrutin":"europeenne","annee":2019,"tour":1,"id_election":"2019_euro_t1","total_voix":7579,"divers":100.0},{"scrutin":"municipales","annee":2020,"tour":1,"id_election":"2020_muni_t1","total_voix":5599,"divers":100.0},{"scrutin":"municipales","annee":2020,"tour":2,"id_election":"2020_muni_t2","total_voix":5081,"divers":100.0},{"scrutin":"departementales","annee":2021,"tour":1,"id_election":"2021_dpmt_t1","total_voix":4575,"divers":100.0},{"scrutin":"regionales","annee":2021,"tour":1,"id_election":"2021_regi_t1","total_voix":4666,"divers":100.0},{"scrutin":"departementales","annee":2021,"tour":2,"id_election":"2021_dpmt_t2","total_voix":4593,"divers":100.0},{"scrutin":"regionales","annee":2021,"tour":2,"id_election":"2021_regi_t2","total_voix":4768,"divers":100.0},{"scrutin":"legislatives","annee":2022,"tour":1,"id_election":"2022_legi_t1","total_voix":7526,"divers":2.31,"gauche":25.05,"centre":40.23,"droite":14.46,"extreme_droite":17.95},{"scrutin":"presidentielle","annee":2022,"tour":1,"id_election":"2022_pres_t1","total_voix":11307,"divers":100.0},{"scrutin":"legislatives","annee":2022,"tour":2,"id_election":"2022_legi_t2","total_voix":7125,"gauche":37.46,"centre":62.54},{"scrutin":"presidentielle","annee":2022,"tour":2,"id_election":"2022_pres_t2","total_voix":10795,"divers":100.0},{"scrutin":"europeenne","annee":2024,"tour":1,"id_election":"2024_euro_t1","total_voix":8287,"divers":89.79,"gauche":10.21},{"scrutin":"legislatives","annee":2024,"tour":1,"id_election":"2024_legi_t1","total_voix":10664,"centre":45.41,"extreme_droite":27.35,"gauche":27.23},{"scrutin":"legislatives","annee":2024,"tour":2,"id_election":"2024_legi_t2","total_voix":10605,"centre":49.54,"extreme_droite":25.86,"gauche":24.6},{"scrutin":"municipales","annee":2026,"tour":1,"id_election":"2026_muni_t1","total_voix":8232,"divers":100.0}]
+[
+  {
+    "scrutin": "europeenne",
+    "annee": 1999,
+    "tour": 1,
+    "id_election": "1999_euro_t1",
+    "total_voix": 6784,
+    "centre": 24.43,
+    "divers": 4.27,
+    "droite": 27.18,
+    "extreme_droite": 5.93,
+    "extreme_gauche": 5.62,
+    "gauche": 32.58
+  },
+  {
+    "scrutin": "cantonal",
+    "annee": 2001,
+    "tour": 1,
+    "id_election": "2001_cant_t1",
+    "total_voix": 7242,
+    "centre": 38.72,
+    "droite": 8.04,
+    "extreme_droite": 14.83,
+    "gauche": 38.41
+  },
+  {
+    "scrutin": "cantonal",
+    "annee": 2001,
+    "tour": 2,
+    "id_election": "2001_cant_t2",
+    "total_voix": 4490,
+    "centre": 68.4,
+    "gauche": 31.6
+  },
+  {
+    "scrutin": "legislatives",
+    "annee": 2002,
+    "tour": 1,
+    "id_election": "2002_legi_t1",
+    "total_voix": 8292,
+    "centre": 57.22,
+    "divers": 1.46,
+    "droite": 2.39,
+    "extreme_droite": 11.88,
+    "extreme_gauche": 2.34,
+    "gauche": 24.71
+  },
+  {
+    "scrutin": "legislatives",
+    "annee": 2002,
+    "tour": 2,
+    "id_election": "2002_legi_t2",
+    "total_voix": 7914,
+    "centre": 68.41,
+    "gauche": 31.59
+  },
+  {
+    "scrutin": "presidentielle",
+    "annee": 2002,
+    "tour": 1,
+    "id_election": "2002_pres_t1",
+    "total_voix": 9289,
+    "centre": 19.71,
+    "droite": 30.83,
+    "extreme_droite": 1.32,
+    "extreme_gauche": 12.57,
+    "gauche": 35.56
+  },
+  {
+    "scrutin": "presidentielle",
+    "annee": 2002,
+    "tour": 2,
+    "id_election": "2002_pres_t2",
+    "total_voix": 9966,
+    "droite": 83.1,
+    "gauche": 16.9
+  },
+  {
+    "scrutin": "europeenne",
+    "annee": 2004,
+    "tour": 1,
+    "id_election": "2004_euro_t1",
+    "total_voix": 5423,
+    "centre": 28.88,
+    "droite": 23.4,
+    "extreme_droite": 9.66,
+    "extreme_gauche": 3.1,
+    "gauche": 34.96
+  },
+  {
+    "scrutin": "regionales",
+    "annee": 2004,
+    "tour": 1,
+    "id_election": "2004_regi_t1",
+    "total_voix": 7674,
+    "centre": 3.08,
+    "droite": 42.17,
+    "extreme_droite": 14.63,
+    "extreme_gauche": 4.14,
+    "gauche": 35.98
+  },
+  {
+    "scrutin": "regionales",
+    "annee": 2004,
+    "tour": 2,
+    "id_election": "2004_regi_t2",
+    "total_voix": 8151,
+    "droite": 44.22,
+    "extreme_droite": 14.12,
+    "gauche": 41.66
+  },
+  {
+    "scrutin": "legislatives",
+    "annee": 2007,
+    "tour": 1,
+    "id_election": "2007_legi_t1",
+    "total_voix": 7940,
+    "centre": 7.38,
+    "divers": 0.86,
+    "droite": 47.39,
+    "extreme_droite": 9.18,
+    "extreme_gauche": 1.76,
+    "gauche": 33.43
+  },
+  {
+    "scrutin": "legislatives",
+    "annee": 2007,
+    "tour": 2,
+    "id_election": "2007_legi_t2",
+    "total_voix": 7649,
+    "droite": 55.24,
+    "gauche": 44.76
+  },
+  {
+    "scrutin": "presidentielle",
+    "annee": 2007,
+    "tour": 1,
+    "id_election": "2007_pres_t1",
+    "total_voix": 11324,
+    "centre": 24.22,
+    "droite": 59.14,
+    "extreme_gauche": 7.19,
+    "gauche": 9.45
+  },
+  {
+    "scrutin": "presidentielle",
+    "annee": 2007,
+    "tour": 2,
+    "id_election": "2007_pres_t2",
+    "total_voix": 11134,
+    "droite": 100.0
+  },
+  {
+    "scrutin": "cantonal",
+    "annee": 2008,
+    "tour": 1,
+    "id_election": "2008_cant_t1",
+    "total_voix": 7313,
+    "divers": 48.5,
+    "extreme_droite": 9.83,
+    "gauche": 41.67
+  },
+  {
+    "scrutin": "cantonal",
+    "annee": 2008,
+    "tour": 2,
+    "id_election": "2008_cant_t2",
+    "total_voix": 5451,
+    "divers": 60.72,
+    "gauche": 39.28
+  },
+  {
+    "scrutin": "europeenne",
+    "annee": 2009,
+    "tour": 1,
+    "id_election": "2009_euro_t1",
+    "total_voix": 5348,
+    "centre": 11.26,
+    "droite": 42.07,
+    "extreme_droite": 12.28,
+    "extreme_gauche": 5.91,
+    "gauche": 28.48
+  },
+  {
+    "scrutin": "regionales",
+    "annee": 2010,
+    "tour": 1,
+    "id_election": "2010_regi_t1",
+    "total_voix": 5993,
+    "centre": 5.96,
+    "droite": 40.48,
+    "extreme_droite": 14.58,
+    "extreme_gauche": 3.14,
+    "gauche": 35.84
+  },
+  {
+    "scrutin": "regionales",
+    "annee": 2010,
+    "tour": 2,
+    "id_election": "2010_regi_t2",
+    "total_voix": 6710,
+    "droite": 40.04,
+    "extreme_droite": 16.92,
+    "gauche": 43.04
+  },
+  {
+    "scrutin": "legislatives",
+    "annee": 2012,
+    "tour": 1,
+    "id_election": "2012_legi_t1",
+    "total_voix": 8043,
+    "centre": 44.91,
+    "droite": 0.87,
+    "extreme_droite": 14.7,
+    "extreme_gauche": 1.04,
+    "gauche": 38.48
+  },
+  {
+    "scrutin": "legislatives",
+    "annee": 2012,
+    "tour": 2,
+    "id_election": "2012_legi_t2",
+    "total_voix": 7593,
+    "centre": 57.38,
+    "gauche": 42.62
+  },
+  {
+    "scrutin": "presidentielle",
+    "annee": 2012,
+    "tour": 1,
+    "id_election": "2012_pres_t1",
+    "total_voix": 11529,
+    "centre": 10.73,
+    "droite": 36.96,
+    "extreme_gauche": 11.61,
+    "gauche": 40.7
+  },
+  {
+    "scrutin": "presidentielle",
+    "annee": 2012,
+    "tour": 2,
+    "id_election": "2012_pres_t2",
+    "total_voix": 11112,
+    "droite": 58.11,
+    "gauche": 41.89
+  },
+  {
+    "scrutin": "europeenne",
+    "annee": 2014,
+    "tour": 1,
+    "id_election": "2014_euro_t1",
+    "total_voix": 6239,
+    "centre": 14.63,
+    "divers": 2.24,
+    "droite": 34.64,
+    "extreme_droite": 22.68,
+    "extreme_gauche": 1.41,
+    "gauche": 24.39
+  },
+  {
+    "scrutin": "municipales",
+    "annee": 2014,
+    "tour": 1,
+    "id_election": "2014_muni_t1",
+    "total_voix": 8858,
+    "droite": 58.49,
+    "extreme_droite": 11.8,
+    "gauche": 29.71
+  },
+  {
+    "scrutin": "municipales",
+    "annee": 2014,
+    "tour": 2,
+    "id_election": "2014_muni_t2",
+    "total_voix": 8925,
+    "divers": 24.1,
+    "droite": 66.01,
+    "extreme_droite": 9.89
+  },
+  {
+    "scrutin": "departementales",
+    "annee": 2015,
+    "tour": 1,
+    "id_election": "2015_dpmt_t1",
+    "total_voix": 6510,
+    "droite": 41.77,
+    "extreme_droite": 28.02,
+    "gauche": 30.22
+  },
+  {
+    "scrutin": "departementales",
+    "annee": 2015,
+    "tour": 2,
+    "id_election": "2015_dpmt_t2",
+    "total_voix": 5962,
+    "droite": 69.47,
+    "extreme_droite": 30.53
+  },
+  {
+    "scrutin": "regionales",
+    "annee": 2015,
+    "tour": 1,
+    "id_election": "2015_regi_t1",
+    "total_voix": 8168,
+    "divers": 0.71,
+    "droite": 45.2,
+    "extreme_droite": 26.13,
+    "extreme_gauche": 0.86,
+    "gauche": 27.11
+  },
+  {
+    "scrutin": "regionales",
+    "annee": 2015,
+    "tour": 2,
+    "id_election": "2015_regi_t2",
+    "total_voix": 9010,
+    "droite": 72.66,
+    "extreme_droite": 27.34
+  },
+  {
+    "scrutin": "legislatives",
+    "annee": 2017,
+    "tour": 1,
+    "id_election": "2017_legi_t1",
+    "total_voix": 7442,
+    "centre": 41.31,
+    "divers": 0.77,
+    "droite": 23.33,
+    "extreme_droite": 13.06,
+    "extreme_gauche": 0.75,
+    "gauche": 20.79
+  },
+  {
+    "scrutin": "legislatives",
+    "annee": 2017,
+    "tour": 2,
+    "id_election": "2017_legi_t2",
+    "total_voix": 5815,
+    "centre": 54.19,
+    "droite": 45.81
+  },
+  {
+    "scrutin": "presidentielle",
+    "annee": 2017,
+    "tour": 1,
+    "id_election": "2017_pres_t1",
+    "total_voix": 11948,
+    "divers": 100.0
+  },
+  {
+    "scrutin": "presidentielle",
+    "annee": 2017,
+    "tour": 2,
+    "id_election": "2017_pres_t2",
+    "total_voix": 10250,
+    "divers": 100.0
+  },
+  {
+    "scrutin": "europeenne",
+    "annee": 2019,
+    "tour": 1,
+    "id_election": "2019_euro_t1",
+    "total_voix": 7579,
+    "divers": 100.0
+  },
+  {
+    "scrutin": "municipales",
+    "annee": 2020,
+    "tour": 1,
+    "id_election": "2020_muni_t1",
+    "total_voix": 5599,
+    "centre": 12.56,
+    "droite": 73.8,
+    "gauche": 13.65
+  },
+  {
+    "scrutin": "municipales",
+    "annee": 2020,
+    "tour": 2,
+    "id_election": "2020_muni_t2",
+    "total_voix": 5081,
+    "droite": 83.33,
+    "gauche": 16.67
+  },
+  {
+    "scrutin": "departementales",
+    "annee": 2021,
+    "tour": 1,
+    "id_election": "2021_dpmt_t1",
+    "total_voix": 4575,
+    "droite": 54.38,
+    "extreme_droite": 17.11,
+    "gauche": 28.5
+  },
+  {
+    "scrutin": "departementales",
+    "annee": 2021,
+    "tour": 2,
+    "id_election": "2021_dpmt_t2",
+    "total_voix": 4593,
+    "droite": 66.25,
+    "gauche": 33.75
+  },
+  {
+    "scrutin": "regionales",
+    "annee": 2021,
+    "tour": 1,
+    "id_election": "2021_regi_t1",
+    "total_voix": 4666,
+    "centre": 13.5,
+    "divers": 1.63,
+    "droite": 46.46,
+    "extreme_droite": 14.81,
+    "extreme_gauche": 1.41,
+    "gauche": 22.18
+  },
+  {
+    "scrutin": "regionales",
+    "annee": 2021,
+    "tour": 2,
+    "id_election": "2021_regi_t2",
+    "total_voix": 4768,
+    "droite": 60.51,
+    "extreme_droite": 14.37,
+    "gauche": 25.13
+  },
+  {
+    "scrutin": "legislatives",
+    "annee": 2022,
+    "tour": 1,
+    "id_election": "2022_legi_t1",
+    "total_voix": 7526,
+    "centre": 40.23,
+    "divers": 1.17,
+    "droite": 14.46,
+    "extreme_droite": 17.95,
+    "extreme_gauche": 1.14,
+    "gauche": 25.05
+  },
+  {
+    "scrutin": "legislatives",
+    "annee": 2022,
+    "tour": 2,
+    "id_election": "2022_legi_t2",
+    "total_voix": 7125,
+    "centre": 62.54,
+    "gauche": 37.46
+  },
+  {
+    "scrutin": "presidentielle",
+    "annee": 2022,
+    "tour": 1,
+    "id_election": "2022_pres_t1",
+    "total_voix": 11307,
+    "divers": 100.0
+  },
+  {
+    "scrutin": "presidentielle",
+    "annee": 2022,
+    "tour": 2,
+    "id_election": "2022_pres_t2",
+    "total_voix": 10795,
+    "divers": 100.0
+  },
+  {
+    "scrutin": "europeenne",
+    "annee": 2024,
+    "tour": 1,
+    "id_election": "2024_euro_t1",
+    "total_voix": 8287,
+    "centre": 20.74,
+    "divers": 3.35,
+    "droite": 11.9,
+    "extreme_droite": 29.67,
+    "extreme_gauche": 0.49,
+    "gauche": 33.84
+  },
+  {
+    "scrutin": "legislatives",
+    "annee": 2024,
+    "tour": 1,
+    "id_election": "2024_legi_t1",
+    "total_voix": 10664,
+    "centre": 45.41,
+    "extreme_droite": 27.35,
+    "extreme_gauche": 1.1,
+    "gauche": 26.13
+  },
+  {
+    "scrutin": "legislatives",
+    "annee": 2024,
+    "tour": 2,
+    "id_election": "2024_legi_t2",
+    "total_voix": 10605,
+    "centre": 49.54,
+    "extreme_droite": 25.86,
+    "gauche": 24.6
+  },
+  {
+    "scrutin": "municipales",
+    "annee": 2026,
+    "tour": 1,
+    "id_election": "2026_muni_t1",
+    "total_voix": 8232,
+    "droite": 74.08,
+    "gauche": 25.92
+  }
+]

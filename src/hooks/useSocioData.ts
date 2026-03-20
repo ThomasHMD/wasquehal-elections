@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { assetUrl } from '../utils/assetUrl'
 
 export interface SocioIris {
   code_iris: string
@@ -35,8 +36,8 @@ export function useSocioData() {
     if (socioCache && mappingCache) return
 
     Promise.all([
-      socioCache ? Promise.resolve(socioCache) : fetch('/data/socio-iris.json').then(r => r.json() as Promise<SocioIris[]>),
-      mappingCache ? Promise.resolve(mappingCache) : fetch('/data/bv-iris-mapping.json').then(r => r.json() as Promise<BVIrisMapping>),
+      socioCache ? Promise.resolve(socioCache) : fetch(assetUrl('/data/socio-iris.json')).then(r => r.json() as Promise<SocioIris[]>),
+      mappingCache ? Promise.resolve(mappingCache) : fetch(assetUrl('/data/bv-iris-mapping.json')).then(r => r.json() as Promise<BVIrisMapping>),
     ]).then(([s, m]) => {
       socioCache = s
       mappingCache = m

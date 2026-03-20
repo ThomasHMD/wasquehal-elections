@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { assetUrl } from '../utils/assetUrl'
 
 export interface ParticipationEntry {
   id_election: string
@@ -15,7 +16,7 @@ let promise: Promise<ParticipationEntry[]> | null = null
 function fetchParticipation(): Promise<ParticipationEntry[]> {
   if (cache) return Promise.resolve(cache)
   if (!promise) {
-    promise = fetch('/data/participation.json')
+    promise = fetch(assetUrl('/data/participation.json'))
       .then(r => r.json() as Promise<ParticipationEntry[]>)
       .then(data => { cache = data; return data })
   }
