@@ -1,6 +1,7 @@
-import { lazy, Suspense } from 'react'
+import { lazy, Suspense, useEffect } from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import Layout from './components/layout/Layout'
+import { prefetchAllRoutes } from './utils/routePrefetch'
 
 const MapView = lazy(() => import('./pages/MapView'))
 const EvolutionView = lazy(() => import('./pages/EvolutionView'))
@@ -8,8 +9,9 @@ const SocioView = lazy(() => import('./pages/SocioView'))
 const CompareView = lazy(() => import('./pages/CompareView'))
 const AboutView = lazy(() => import('./pages/AboutView'))
 
-
 export default function App() {
+  useEffect(() => { prefetchAllRoutes() }, [])
+
   return (
     <BrowserRouter basename={import.meta.env.BASE_URL}>
       <Suspense fallback={null}>
