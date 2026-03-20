@@ -1,8 +1,9 @@
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useEffect, useMemo, lazy, Suspense } from 'react'
 import Sidebar from '../components/layout/Sidebar'
-import AbstentionChart from '../components/charts/AbstentionChart'
-import FamilleEvolutionChart from '../components/charts/FamilleEvolutionChart'
-import BVHeatmap from '../components/charts/BVHeatmap'
+
+const AbstentionChart = lazy(() => import('../components/charts/AbstentionChart'))
+const FamilleEvolutionChart = lazy(() => import('../components/charts/FamilleEvolutionChart'))
+const BVHeatmap = lazy(() => import('../components/charts/BVHeatmap'))
 import { useParticipationData } from '../hooks/useParticipationData'
 import {
   buildAbstentionSeries,
@@ -10,7 +11,27 @@ import {
   SCRUTIN_TYPES,
 } from '../utils/evolutionHelpers'
 import { assetUrl } from '../utils/assetUrl'
+import { FAMILLE_COLORS, FAMILLE_LABELS } from '../utils/colors'
+import type { Famille } from '../utils/types'
 import type { FamillePoint } from '../utils/evolutionHelpers'
+
+interface CandidatEntry {
+  nom: string
+  prenom: string
+  nuance: string
+  famille: Famille
+  voix: number
+  pourcentage: number
+}
+
+interface ElectionCandidats {
+  id_election: string
+  scrutin: string
+  annee: number
+  tour: number
+  total_exprimes: number
+  candidats: CandidatEntry[]
+}
 
 // Charge les données familles pré-agrégées (6 KB au lieu de 732 KB)
 let famillesCache: FamillePoint[] | null = null
@@ -34,6 +55,24 @@ function useFamillesData() {
   return { data, loading, error }
 }
 
+// Charge les données candidats pré-agrégées
+let candidatsCache: ElectionCandidats[] | null = null
+
+function useCandidatsData() {
+  const [data, setData] = useState<ElectionCandidats[]>(candidatsCache ?? [])
+  const [loading, setLoading] = useState(!candidatsCache)
+
+  useEffect(() => {
+    if (candidatsCache) return
+    fetch(assetUrl('/data/candidats-evolution.json'))
+      .then(r => r.json() as Promise<ElectionCandidats[]>)
+      .then(d => { candidatsCache = d; setData(d); setLoading(false) })
+      .catch(() => setLoading(false))
+  }, [])
+
+  return { data, loading }
+}
+
 type TabId = 'abstention' | 'familles' | 'heatmap'
 
 const TABS: { id: TabId; label: string }[] = [
@@ -49,6 +88,7 @@ export default function EvolutionView() {
 
   const { data: participation, loading: loadingParticipation } = useParticipationData()
   const { data: famillesRaw, loading: loadingFamilles } = useFamillesData()
+  const { data: candidatsRaw } = useCandidatsData()
 
   const abstentionSeries = useMemo(
     () => buildAbstentionSeries(participation, scrutinFilter),
@@ -65,6 +105,12 @@ export default function EvolutionView() {
       label: `${d.annee}${(d.tour as number) === 2 ? ' T2' : ' T1'}`,
     }))
   }, [famillesRaw, scrutinFilter])
+
+  // Filtrer les candidats par type de scrutin
+  const candidatsFiltered = useMemo(() => {
+    if (scrutinFilter === 'all') return candidatsRaw
+    return candidatsRaw.filter(e => e.scrutin === scrutinFilter)
+  }, [candidatsRaw, scrutinFilter])
 
   const heatmapData = useMemo(
     () => buildHeatmapData(participation, scrutinFilter),
@@ -143,7 +189,9 @@ export default function EvolutionView() {
                 {abstentionSeries.length === 0 ? (
                   <p className="text-slate-400 text-sm text-center py-8">Aucune donnée pour ce filtre</p>
                 ) : (
-                  <AbstentionChart data={abstentionSeries} showBVs={showBVs} />
+                  <Suspense fallback={<div className="text-sm text-slate-400 animate-pulse text-center py-8">Chargement graphique…</div>}>
+                    <AbstentionChart data={abstentionSeries} showBVs={showBVs} />
+                  </Suspense>
                 )}
               </div>
             )}
@@ -158,8 +206,60 @@ export default function EvolutionView() {
                 {familleSeries.length === 0 ? (
                   <p className="text-slate-400 text-sm text-center py-8">Aucune donnée pour ce filtre</p>
                 ) : (
-                  <FamilleEvolutionChart data={familleSeries} />
+                  <Suspense fallback={<div className="text-sm text-slate-400 animate-pulse text-center py-8">Chargement graphique…</div>}>
+                    <FamilleEvolutionChart data={familleSeries} />
+                  </Suspense>
                 )}
+              </div>
+            )}
+
+            {/* Détail candidats par élection */}
+            {tab === 'familles' && candidatsFiltered.length > 0 && (
+              <div className="space-y-4">
+                {candidatsFiltered.map(election => {
+                  const label = `${election.annee}${election.tour === 2 ? ' T2' : ' T1'}`
+                  return (
+                    <div key={election.id_election} className="bg-white rounded-lg border border-slate-200 p-4">
+                      <h3 className="text-sm font-semibold text-slate-700 mb-2">
+                        {label} — {SCRUTIN_TYPES.find(t => t.value === election.scrutin)?.label ?? election.scrutin}
+                      </h3>
+                      <table className="w-full text-xs">
+                        <thead className="bg-slate-50">
+                          <tr>
+                            <th className="text-left px-3 py-1.5 text-slate-600 font-semibold">Candidat</th>
+                            <th className="text-left px-3 py-1.5 text-slate-600 font-semibold">Nuance</th>
+                            <th className="text-left px-3 py-1.5 text-slate-600 font-semibold">Famille</th>
+                            <th className="text-right px-3 py-1.5 text-slate-600 font-semibold">Voix</th>
+                            <th className="text-right px-3 py-1.5 text-slate-600 font-semibold">%</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-100">
+                          {election.candidats.filter(c => c.voix > 0).map((c, i) => (
+                            <tr key={i} className="hover:bg-slate-50">
+                              <td className="px-3 py-1.5 text-slate-700">
+                                {c.prenom || c.nom
+                                  ? `${c.prenom ?? ''} ${c.nom ?? ''}`.trim()
+                                  : c.nuance}
+                              </td>
+                              <td className="px-3 py-1.5 text-slate-500">{c.nuance}</td>
+                              <td className="px-3 py-1.5">
+                                <span className="inline-flex items-center gap-1">
+                                  <span
+                                    className="w-2 h-2 rounded-sm inline-block"
+                                    style={{ backgroundColor: FAMILLE_COLORS[c.famille] }}
+                                  />
+                                  {FAMILLE_LABELS[c.famille] ?? c.famille}
+                                </span>
+                              </td>
+                              <td className="px-3 py-1.5 text-right text-slate-600">{c.voix.toLocaleString('fr')}</td>
+                              <td className="px-3 py-1.5 text-right font-medium text-slate-700">{c.pourcentage.toFixed(1)} %</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  )
+                })}
               </div>
             )}
 
@@ -171,12 +271,14 @@ export default function EvolutionView() {
                 <p className="text-xs text-slate-400 mb-4">
                   Chaque cellule = taux d'abstention. Survoler pour le détail.
                 </p>
-                <BVHeatmap
-                  cells={heatmapData.cells}
-                  elections={heatmapData.elections}
-                  labels={heatmapData.labels}
-                  bvs={heatmapData.bvs}
-                />
+                <Suspense fallback={<div className="text-sm text-slate-400 animate-pulse text-center py-8">Chargement heatmap…</div>}>
+                  <BVHeatmap
+                    cells={heatmapData.cells}
+                    elections={heatmapData.elections}
+                    labels={heatmapData.labels}
+                    bvs={heatmapData.bvs}
+                  />
+                </Suspense>
               </div>
             )}
           </div>

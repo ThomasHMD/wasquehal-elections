@@ -1,6 +1,7 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, lazy, Suspense } from 'react'
 import Sidebar from '../components/layout/Sidebar'
-import ElectionMap from '../components/map/ElectionMap'
+
+const ElectionMap = lazy(() => import('../components/map/ElectionMap'))
 import { useElectionData } from '../hooks/useElectionData'
 import { useBVGeo } from '../hooks/useGeoData'
 import { computeMetricByBV } from '../utils/aggregations'
@@ -82,13 +83,21 @@ export default function CompareView() {
                 <div className="absolute top-2 left-1/2 -translate-x-1/2 z-10 bg-blue-600 text-white text-xs px-2.5 py-1 rounded-full pointer-events-none shadow">
                   A — {scrutinALabel}
                 </div>
-                {geoData && <ElectionMap geoData={geoData} metrics={metricsA} />}
+                {geoData && (
+                  <Suspense fallback={<div className="flex items-center justify-center h-full text-sm text-slate-400 animate-pulse">Chargement carte…</div>}>
+                    <ElectionMap geoData={geoData} metrics={metricsA} />
+                  </Suspense>
+                )}
               </div>
               <div className="flex-1 relative">
                 <div className="absolute top-2 left-1/2 -translate-x-1/2 z-10 bg-emerald-600 text-white text-xs px-2.5 py-1 rounded-full pointer-events-none shadow">
                   B — {scrutinBLabel}
                 </div>
-                {geoData && <ElectionMap geoData={geoData} metrics={metricsB} />}
+                {geoData && (
+                  <Suspense fallback={<div className="flex items-center justify-center h-full text-sm text-slate-400 animate-pulse">Chargement carte…</div>}>
+                    <ElectionMap geoData={geoData} metrics={metricsB} />
+                  </Suspense>
+                )}
               </div>
             </div>
 

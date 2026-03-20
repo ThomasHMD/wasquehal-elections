@@ -1,6 +1,7 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, lazy, Suspense } from 'react'
 import Sidebar from '../components/layout/Sidebar'
-import ElectionMap from '../components/map/ElectionMap'
+
+const ElectionMap = lazy(() => import('../components/map/ElectionMap'))
 import MapPopup from '../components/map/MapPopup'
 import ScrutinSelector from '../components/filters/ScrutinSelector'
 import MetriqueSelector from '../components/filters/MetriqueSelector'
@@ -79,11 +80,13 @@ export default function MapView() {
 
         {/* Carte */}
         {geoData && (
-          <ElectionMap
-            geoData={geoData}
-            metrics={metrics}
-            onBVClick={setSelectedBV}
-          />
+          <Suspense fallback={<div className="absolute inset-0 flex items-center justify-center text-sm text-slate-400 animate-pulse">Chargement carte…</div>}>
+            <ElectionMap
+              geoData={geoData}
+              metrics={metrics}
+              onBVClick={setSelectedBV}
+            />
+          </Suspense>
         )}
 
         {/* Popup détail BV */}

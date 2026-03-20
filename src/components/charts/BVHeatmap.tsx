@@ -1,3 +1,4 @@
+import { useMemo } from 'react'
 import type { HeatmapCell } from '../../utils/evolutionHelpers'
 import { getAbstentionColor } from '../../utils/colors'
 
@@ -10,10 +11,13 @@ interface BVHeatmapProps {
 
 export default function BVHeatmap({ cells, elections, labels, bvs }: BVHeatmapProps) {
   // Index rapide
-  const cellMap = new Map<string, HeatmapCell>()
-  for (const c of cells) {
-    cellMap.set(`${c.bv}_${c.id_election}`, c)
-  }
+  const cellMap = useMemo(() => {
+    const map = new Map<string, HeatmapCell>()
+    for (const c of cells) {
+      map.set(`${c.bv}_${c.id_election}`, c)
+    }
+    return map
+  }, [cells])
 
   if (elections.length === 0) {
     return <div className="text-center text-slate-400 text-sm py-8">Aucune donnée</div>
