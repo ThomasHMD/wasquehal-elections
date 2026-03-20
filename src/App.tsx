@@ -1,31 +1,24 @@
-import { lazy, Suspense, useEffect } from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import Layout from './components/layout/Layout'
-import { prefetchAllRoutes } from './utils/routePrefetch'
-
-const MapView = lazy(() => import('./pages/MapView'))
-const EvolutionView = lazy(() => import('./pages/EvolutionView'))
-const SocioView = lazy(() => import('./pages/SocioView'))
-const CompareView = lazy(() => import('./pages/CompareView'))
-const AboutView = lazy(() => import('./pages/AboutView'))
+import MapView from './pages/MapView'
+import EvolutionView from './pages/EvolutionView'
+import SocioView from './pages/SocioView'
+import CompareView from './pages/CompareView'
+import AboutView from './pages/AboutView'
 
 export default function App() {
-  useEffect(() => { prefetchAllRoutes() }, [])
-
   return (
     <BrowserRouter basename={import.meta.env.BASE_URL}>
-      <Suspense fallback={null}>
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Navigate to="/carte" replace />} />
-            <Route path="carte" element={<MapView />} />
-            <Route path="evolution" element={<EvolutionView />} />
-            <Route path="profil" element={<SocioView />} />
-            <Route path="comparer" element={<CompareView />} />
-            <Route path="methodologie" element={<AboutView />} />
-          </Route>
-        </Routes>
-      </Suspense>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Navigate to="/carte" replace />} />
+          <Route path="carte" element={<MapView />} />
+          <Route path="evolution" element={<EvolutionView />} />
+          <Route path="profil" element={<SocioView />} />
+          <Route path="comparer" element={<CompareView />} />
+          <Route path="methodologie" element={<AboutView />} />
+        </Route>
+      </Routes>
     </BrowserRouter>
   )
 }
